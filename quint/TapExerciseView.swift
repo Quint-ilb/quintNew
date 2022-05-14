@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TapExerciseView: View {
     
-    @StateObject var playerManager : PlayerManager = PlayerManager(notes: Lib.tapExercises[2].notes, bpm: Lib.tapExercises[2].bpms[0])
+    @StateObject var playerManager : PlayerManager = PlayerManager(notes: Lib.tapExercises[1].notes, bpm: Lib.tapExercises[1].bpms[2])
     
     @State var tapTimestamp: [TimeInterval] = []
     @State var tapTimestampBool: [Bool] = []
