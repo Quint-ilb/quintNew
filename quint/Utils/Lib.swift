@@ -11,7 +11,7 @@ class Lib {
     static var tapExercises : [TapExercise] = [
         TapExercise(
             name: "Full Note",
-            notes: [.fullNote, .fullNote],
+            notes: [.fullNote],
             bpms: [60,80,120]
         ),
         TapExercise(
@@ -21,12 +21,12 @@ class Lib {
         ),
         TapExercise(
             name: "Quarter Note",
-            notes: [.quarterNote, .quarterNote, .quarterNote, .quarterNote, .quarterNote, .quarterNote],
+            notes: [.quarterNote, .quarterNote, .quarterNote, .quarterNote],
             bpms: [60,80, 100]
         ),
         TapExercise(
             name: "Eighth Note",
-            notes: [.eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote],
+            notes: [.eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote],
             bpms: [40,60,80]
         )
         
