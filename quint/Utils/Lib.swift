@@ -11,7 +11,7 @@ class Lib {
     static var tapExercises : [TapExercise] = [
         TapExercise(
             name: "Full Note",
-            notes: [.fullNote],
+            notes: [.fullNote, .fullRest, .fullNote, .fullRest],
             bpms: [60,80,120]
         ),
         TapExercise(

@@ -27,7 +27,7 @@ class Helper {
         let interval : Double = 60.0 / Double(bpm)
         var beatsTimeInterval : [TimeInterval] = [] //last stop
         if let _ = offsetBpm {
-            beatsTimeInterval.append(TimeInterval(Double(offsetBpm!+1)*interval))
+            beatsTimeInterval.append(TimeInterval(Double(offsetBpm!)*interval))
         } else {
             beatsTimeInterval.append(TimeInterval(interval))
         }
@@ -35,5 +35,20 @@ class Helper {
             beatsTimeInterval.append(TimeInterval( Double(60.0 * note.beat.rawValue / Double(bpm)) ))
         }
         return beatsTimeInterval
+    }
+    
+    static func getMetronomeBeatInterval(notes: [Note], bpm: Int, offsetBpm: Int? ) -> [TimeInterval] {
+        let interval : Double = 60.0 / Double(bpm)
+        var sum : Double = 0
+
+        notes.forEach { (note) in
+            sum += note.beat.rawValue
+        }
+        let totalBeat = Int(ceil(sum)) + (offsetBpm ?? 0)
+        var metronomeInterval : [TimeInterval] = []
+        for _ in 0..<totalBeat{
+            metronomeInterval.append(interval)
+        }
+        return metronomeInterval
     }
 }

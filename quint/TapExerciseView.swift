@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TapExerciseView: View {
     
-    @StateObject var playerManager : PlayerManager = PlayerManager(notes: Lib.tapExercises[2].notes, bpm: Lib.tapExercises[2].bpms[0])
+    @StateObject var playerManager : PlayerManager = PlayerManager(notes: Lib.tapExercises[0].notes, bpm: Lib.tapExercises[0].bpms[0])
     
     @State var tapTimestamp: [TimeInterval] = []
     @State var tapTimestampBool: [Bool] = []
@@ -27,6 +27,7 @@ struct TapExerciseView: View {
             Text("playingIndex \(playerManager.playingIndex)")
             Text("cadisplaylink \(playerManager.playingTimestamp)")
             Text("startTime \(playerManager.startTime)")
+            Text("endTime \(playerManager.endTime ?? 0)")
            
             HStack{
                 ForEach(tapTimestampBool, id: \.self) { timeBool in

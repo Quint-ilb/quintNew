@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1E7948283542F700BB36B9 /* Nada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E7947283542F700BB36B9 /* Nada.swift */; };
+		0A1E794A2835461000BB36B9 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E79492835461000BB36B9 /* Constant.swift */; };
 		0A3B24DE282E8E2400A82AE8 /* quintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DD282E8E2400A82AE8 /* quintApp.swift */; };
 		0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DF282E8E2400A82AE8 /* ContentView.swift */; };
 		0A3B24E2282E8E2500A82AE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B24E1282E8E2500A82AE8 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1E7947283542F700BB36B9 /* Nada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nada.swift; sourceTree = "<group>"; };
+		0A1E79492835461000BB36B9 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		0A3B24DA282E8E2400A82AE8 /* quint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3B24DD282E8E2400A82AE8 /* quintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quintApp.swift; sourceTree = "<group>"; };
 		0A3B24DF282E8E2400A82AE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				0A3B2502282E947C00A82AE8 /* Note.swift */,
 				0A3B2505282EA81500A82AE8 /* PlayerManager.swift */,
 				0A3B2507282EACCC00A82AE8 /* Player.swift */,
+				0A1E7947283542F700BB36B9 /* Nada.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -120,6 +125,7 @@
 			children = (
 				0A3B24FA282E90F000A82AE8 /* Lib.swift */,
 				0A3B2500282E92F900A82AE8 /* Helper.swift */,
+				0A1E79492835461000BB36B9 /* Constant.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -197,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */,
+				0A1E7948283542F700BB36B9 /* Nada.swift in Sources */,
 				0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */,
 				0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */,
 				0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */,
@@ -204,6 +211,7 @@
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Lib.swift in Sources */,
 				0A3B2503282E947C00A82AE8 /* Note.swift in Sources */,
+				0A1E794A2835461000BB36B9 /* Constant.swift in Sources */,
 				0A3B24FF282E922500A82AE8 /* Beat.swift in Sources */,
 				0A3B24DE282E8E2400A82AE8 /* quintApp.swift in Sources */,
 				0A3B2501282E92F900A82AE8 /* Helper.swift in Sources */,
