@@ -26,6 +26,7 @@
 		C37D0780282FFA640056EC90 /* hihat.wav in Resources */ = {isa = PBXBuildFile; fileRef = C37D077F282FFA640056EC90 /* hihat.wav */; };
 		C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */; };
 		C3D7D2292830DB5900BFA494 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7D2282830DB5900BFA494 /* Slider.swift */; };
+		C832CECC2835472400FEB78C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C832CECB2835472400FEB78C /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		C37D077F282FFA640056EC90 /* hihat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hihat.wav; sourceTree = "<group>"; };
 		C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		C3D7D2282830DB5900BFA494 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		C832CECB2835472400FEB78C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				0A3B24E3282E8E2500A82AE8 /* Preview Content */,
 				0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */,
 				0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */,
+				C832CECB2835472400FEB78C /* SettingView.swift */,
 			);
 			path = quint;
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				C31392B92830B56600DAF78A /* HomeView.swift in Sources */,
 				0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */,
 				C3D7D2292830DB5900BFA494 /* Slider.swift in Sources */,
+				C832CECC2835472400FEB78C /* SettingView.swift in Sources */,
 				0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */,
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
