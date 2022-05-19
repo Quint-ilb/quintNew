@@ -8,28 +8,37 @@
 import SwiftUI
 
 struct OnBoardView: View {
+    
     var pageToBoard: [OnboardList]
+    
+    @State var selectedItem: Int = 1
     var body: some View {
         ScrollView(.init()){
-            TabView{
-                ForEach(pageToBoard) {
-                    boarding in OnBoarding(eachBoarding: boarding)
+            TabView(selection: $selectedItem){
+                ForEach(pageToBoard) { boarding in
+                    OnBoarding(eachBoarding: boarding)
+                    
                 }
             }
             .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+        
             .overlay(
                 HStack(spacing: 15){
-                    ForEach(pageToBoard){ index in
+                    ForEach(0..<pageToBoard.count){ index in
+                       
+//                        if
                         Capsule()
-                            .fill(Color.white)
-                            .frame(width: 100, height: 4)
+                            .fill(selectedItem-1 == index ? Color.white : Color.gray)
+                            .frame(width: 110, height: 3)
+                        
+                        
 
                     }
                 }
                     .padding(.bottom,UIApplication.shared.windows.first?.safeAreaInsets.bottom)
                     .padding(.bottom,10)
+                    .offset(y:350)
 
-                ,alignment: .init(horizontal: .center, vertical: .lastTextBaseline)
 
             )
         }
@@ -44,7 +53,7 @@ struct OnBoarding: View {
             
             Image(eachBoarding.Image)
             VStack{
-                
+                Spacer()
                 Text(eachBoarding.title)
                     .font(.system(size: 22, weight: .bold))
                     .foregroundColor(.white)
@@ -107,3 +116,4 @@ struct OnBoardView_Previews: PreviewProvider {
         OnBoardView(pageToBoard: OnList)
     }
 }
+

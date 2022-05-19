@@ -47,7 +47,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     }
     
     private func getHiHatPlayer() -> Player {
-        return Player(fileName: "hihat", ext: "wav")
+        return Player(fileName: "hihat", ext: "m4a")
     }
     
     private func getStartPlayer() -> Player {
