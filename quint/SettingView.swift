@@ -51,15 +51,24 @@ struct SettingView: View {
                                 .padding()
                                 .shadow(color: .gray, radius: 10, x: 0, y: 2)
                             VStack(alignment: .leading){
-                                Text("Privacy Policy")
-                                    .font(.headline)
-                                    .bold()
-                                Text("read documents manages client data")
-                                    .font(.footnote)
-                                    .foregroundColor(.secondary)
-                                
+                                NavigationLink(destination: PrivacyPolicyView() .navigationTitle("Privacy Policy")){
+                                    HStack{
+                                        VStack(alignment: .leading){
+                                            Text("Privacy Policy")
+                                                .font(.headline)
+                                                .bold()
+                                                .foregroundColor(.black)
+                                            Text("read documents manages client data")
+                                                .font(.footnote)
+                                                .foregroundColor(.secondary)
+                                        }
+                                        Image(systemName: "chevron.right")
+                                            .foregroundColor(.gray)
+                                    }
+                                    .padding()
+                                }
                             }
-                            .padding(.trailing, 38)
+                            .padding(.trailing, 25)
                         }
                     }
                     .padding()
@@ -138,5 +147,69 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView()
+    }
+}
+
+struct PrivacyPolicyView: View {
+    var body: some View {
+        ScrollView{
+            VStack{
+                Text("Last updated: *bind here*")
+                    .font(.subheadline)
+                VStack(alignment: .leading){
+                    Text("Overview")
+                        .bold()
+                        .padding(.bottom, -5)
+                    Text("""
+Note Trainer app does not collect any personal data. All counters’ information that you input into the Note Trainer app remains privately stored on your device.
+
+We take your privacy very seriously. Note Trainer app always want make better development decisions and choose where to focus development effort. Note Trainer app does not share, sell or rent your data, and the anonymous information is only collected to help make the app better.
+""")
+                 .padding(.bottom)
+                    
+                    Text("Your Consent")
+                        .bold()
+                        .padding(.bottom, -5)
+                    Text("""
+By using Note Trainer app, you consent to this privacy policy. Changes to this Privacy Policy We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page. Contact Us If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
+""")
+                 .padding(.bottom)
+                
+                    Text("Your Consent")
+                        .bold()
+                        .padding(.bottom, -5)
+                    Text("""
+By using Note Trainer app, you consent to this privacy policy.
+""")
+                 .padding(.bottom)
+                    
+                    Text("Changes to this Privacy Policy")
+                        .bold()
+                        .padding(.bottom, -5)
+                    Text("""
+We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page. Contact Us If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
+""")
+                 .padding(.bottom)
+                    
+                    Text("Contact Us")
+                        .bold()
+                        .padding(.bottom, -5)
+                    Text("""
+If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com
+
+If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
+""")
+                 .padding(.bottom)
+                }
+                .padding([.trailing, .leading], 20)
+            }
+        }
+    }
+}
+
+
+struct PrivacyPolicyView_Previews: PreviewProvider {
+    static var previews: some View {
+        PrivacyPolicyView()
     }
 }
