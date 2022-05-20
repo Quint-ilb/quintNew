@@ -17,7 +17,7 @@ struct HomeView: View {
             
             HStack {
                 VStack{
-                    Text("Lorem Ipsum dolor")
+                    Text("Lorem Ipsum dolor...")
                         .font(.system(size: 10))
                     Text("Lorem ipsum dolor sit amet, consectetur")
                         .font(.system(size: 8))
