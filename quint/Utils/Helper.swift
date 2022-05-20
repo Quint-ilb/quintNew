@@ -27,7 +27,7 @@ class Helper {
         let interval : Double = 60.0 / Double(bpm)
         var beatsTimeInterval : [TimeInterval] = [] //last stop
         if let _ = offsetBpm {
-            beatsTimeInterval.append(TimeInterval(Double(offsetBpm!+1)*interval))
+            beatsTimeInterval.append(TimeInterval(Double(offsetBpm!)*interval))
         } else {
             beatsTimeInterval.append(TimeInterval(interval))
         }
@@ -35,5 +35,60 @@ class Helper {
             beatsTimeInterval.append(TimeInterval( Double(60.0 * note.beat.rawValue / Double(bpm)) ))
         }
         return beatsTimeInterval
+    }
+    
+    static func getMetronomeBeatInterval(notes: [Note], bpm: Int, offsetBpm: Int? ) -> [TimeInterval] {
+        let interval : Double = 60.0 / Double(bpm)
+        var sum : Double = 0
+        
+        notes.forEach { (note) in
+            sum += note.beat.rawValue
+        }
+        let totalBeat = Int(ceil(sum)) + (offsetBpm ?? 0)
+        var metronomeInterval : [TimeInterval] = []
+        for _ in 0..<totalBeat{
+            metronomeInterval.append(interval)
+        }
+        return metronomeInterval
+    }
+    
+    
+    static func generateBlock(offsetBpm: Int, notes: [Note]) -> [[Int]] {
+        var arr = [Double(offsetBpm)]
+        for i in notes {
+            arr.append(i.beat.rawValue)
+        }
+        var arr2 : [[Int]] = []
+        var arr3 : [Int : Int] = [:]
+        var isTrue : Bool = true
+        for (index,i) in arr.enumerated() {
+            var ii = i
+            
+            while ii > 0{
+                var iii : [Int] = []
+                iii.append(isTrue ? 1 : 0)
+                
+                ii -= 0.5
+                if arr3[index] == nil {
+                    arr3[index] = arr2.count
+                    iii.append(index)
+                    
+                }
+                arr2.append(iii)
+                isTrue.toggle()
+            }
+        }
+        return arr2
+    }
+    
+    static func getTotalTime(notes: [Note], bpm: Int, offsetBpm: Int) -> TimeInterval {
+        let interval : TimeInterval = 60.0/Double(bpm)
+        var res : Double = 0
+        for note in notes {
+            res += note.beat.rawValue
+        }
+        res += Double(offsetBpm)
+        print("debug total time", res * interval, res, bpm, offsetBpm, interval)
+        return res * interval
     }
 }

@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A1E7948283542F700BB36B9 /* Nada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E7947283542F700BB36B9 /* Nada.swift */; };
+		0A1E794C2836A96B00BB36B9 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E794B2836A96B00BB36B9 /* Extentions.swift */; };
 		0A3B24DE282E8E2400A82AE8 /* quintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DD282E8E2400A82AE8 /* quintApp.swift */; };
 		0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DF282E8E2400A82AE8 /* ContentView.swift */; };
 		0A3B24E2282E8E2500A82AE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B24E1282E8E2500A82AE8 /* Assets.xcassets */; };
 		0A3B24E5282E8E2500A82AE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B24E4282E8E2500A82AE8 /* Preview Assets.xcassets */; };
 		0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */; };
 		0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */; };
-		0A3B24FB282E90F000A82AE8 /* Lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FA282E90F000A82AE8 /* Lib.swift */; };
+		0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FA282E90F000A82AE8 /* Config.swift */; };
 		0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FC282E913600A82AE8 /* TapExercise.swift */; };
 		0A3B24FF282E922500A82AE8 /* Beat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FE282E922500A82AE8 /* Beat.swift */; };
 		0A3B2501282E92F900A82AE8 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2500282E92F900A82AE8 /* Helper.swift */; };
@@ -31,6 +33,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A1E7947283542F700BB36B9 /* Nada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nada.swift; sourceTree = "<group>"; };
+		0A1E794B2836A96B00BB36B9 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		0A3B24DA282E8E2400A82AE8 /* quint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3B24DD282E8E2400A82AE8 /* quintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quintApp.swift; sourceTree = "<group>"; };
 		0A3B24DF282E8E2400A82AE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -38,7 +42,7 @@
 		0A3B24E4282E8E2500A82AE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
 		0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapExerciseView.swift; sourceTree = "<group>"; };
-		0A3B24FA282E90F000A82AE8 /* Lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lib.swift; sourceTree = "<group>"; };
+		0A3B24FA282E90F000A82AE8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0A3B24FC282E913600A82AE8 /* TapExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapExercise.swift; sourceTree = "<group>"; };
 		0A3B24FE282E922500A82AE8 /* Beat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beat.swift; sourceTree = "<group>"; };
 		0A3B2500282E92F900A82AE8 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				0A3B2502282E947C00A82AE8 /* Note.swift */,
 				0A3B2505282EA81500A82AE8 /* PlayerManager.swift */,
 				0A3B2507282EACCC00A82AE8 /* Player.swift */,
+				0A1E7947283542F700BB36B9 /* Nada.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -131,8 +136,9 @@
 		0A3B250B282FC73600A82AE8 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0A3B24FA282E90F000A82AE8 /* Lib.swift */,
+				0A3B24FA282E90F000A82AE8 /* Config.swift */,
 				0A3B2500282E92F900A82AE8 /* Helper.swift */,
+				0A1E794B2836A96B00BB36B9 /* Extentions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -231,6 +237,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */,
+				0A1E7948283542F700BB36B9 /* Nada.swift in Sources */,
+				0A1E794C2836A96B00BB36B9 /* Extentions.swift in Sources */,
 				0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */,
 				C31392B92830B56600DAF78A /* HomeView.swift in Sources */,
 				0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */,
@@ -238,7 +246,7 @@
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
 				C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
-				0A3B24FB282E90F000A82AE8 /* Lib.swift in Sources */,
+				0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */,
 				0A3B2503282E947C00A82AE8 /* Note.swift in Sources */,
 				C3A95E532837327900EFCC4C /* TapButtonView.swift in Sources */,
 				C31392B72830B52200DAF78A /* LearningView.swift in Sources */,
