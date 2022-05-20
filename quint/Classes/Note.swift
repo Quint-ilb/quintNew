@@ -8,6 +8,7 @@
 import Foundation
 
 struct Note {
+    
     var name: String
     var image: String
     var beat: Beat
@@ -21,6 +22,6 @@ struct Note {
     static let fullRest = Note(name: "FullRest", image: "fullRest", beat: .full, isRest: true)
     static let halfRest = Note(name: "HalfRest", image: "halfRest", beat: .half, isRest: true)
     static let quarterRest = Note(name: "QuarterRest", image: "quarterRest", beat: .quarter, isRest: true)
-    static let eighthRest = Note(name: "EightRest", image: "eighthRest", beat: .full, isRest: true)
+    static let eighthRest = Note(name: "EightRest", image: "eighthRest", beat: .eighth, isRest: true)
     
 }

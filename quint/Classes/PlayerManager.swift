@@ -15,7 +15,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     var players : [Player] = []
     var metronomePlayers : [Player] = []
     var noteInterval : [TimeInterval]?
-    var metronomeInterval : [TimeInterval]?
+    @Published var metronomeInterval : [TimeInterval]?
     
     var enabled: Bool = false { didSet {
         if enabled {
@@ -32,12 +32,13 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     @Published var playingTimestamp : TimeInterval = -1
     @Published var playTime : [TimeInterval] = []
     @Published var endTime: TimeInterval?
+    @Published var isPlaying : Bool = false
     
     var startIndex : Int = 0
     var metronomeStartIndex: Int = 0
     var displayLink : CADisplayLink!
     
-    init(notes: [Note], bpm: Int, offsetBpm: Int = OFFSET_BPM){
+    init(notes: [Note], bpm: Int, offsetBpm: Int = Config.OFFSET_BPM){
         print("bpm", bpm)
         self.noteInterval = Helper.convertBeatToTimeInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
         print("note interval", noteInterval as Any)
@@ -103,7 +104,11 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     }
     
     private func stop() {
+        isPlaying = false
         for player in players {
+            player.stop()
+        }
+        for player in metronomePlayers {
             player.stop()
         }
         displayLink.invalidate()
@@ -127,6 +132,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     }
     
     private func play() {
+        isPlaying = true
         players[startIndex].play(atTime: startTime, delay: 0.0)
 //        print(metronomeStartIndex)
         metronomePlayers[metronomeStartIndex].play(atTime: startTime, delay: 0.0)

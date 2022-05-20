@@ -1,5 +1,5 @@
 //
-//  Lib.swift
+//  Config.swift
 //  quint
 //
 //  Created by Widya Limarto on 13/05/22.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Lib {
+class Config {
     static var tapExercises : [TapExercise] = [
         TapExercise(
             name: "Full Note",
-            notes: [.fullNote, .fullRest, .fullNote, .fullRest],
+            notes: [.fullNote],
             bpms: [60,80,120]
         ),
         TapExercise(
@@ -22,15 +22,19 @@ class Lib {
         TapExercise(
             name: "Quarter Note",
             notes: [.quarterNote, .quarterNote, .quarterNote, .quarterNote],
+            
             bpms: [60,80, 100]
         ),
         TapExercise(
             name: "Eighth Note",
-            notes: [.eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote, .eighthNote],
-            bpms: [40,60,80]
+            notes: [.fullNote, .fullRest, .halfNote, .halfRest, .quarterNote, .quarterRest, .eighthNote, .eighthRest],
+            bpms: [120,60,80]
         )
         
     ]
+    
+    static var OFFSET_BPM = 3
+    static var BLOCK_WIDTH = 50
+    
+    
 }
-
-
