@@ -7,33 +7,52 @@
 
 import SwiftUI
 
-enum TapButtonState {
-    case start
-    case tap
-    case restart
+enum TapButtonState: String {
+    case start = "Start"
+    case tap = "Tap"
+    case ready = "Ready"
+    case restart = "Restart"
+}
+
+enum TapIndicatorState {
+    case right
+    case wrong
+    case neutral
 }
 
 struct TapExerciseView: View {
     
     var tapExercise: TapExercise
     var generatedBlock : [[Int]]
-    @State var totalTime : TimeInterval
-    @State var bpm : Int
-    @StateObject var playerManager : PlayerManager
+    var totalTime : TimeInterval
+    var bpm : Int
+    @Binding var bpmIndex : Int
+    @ObservedObject var playerManager : PlayerManager
+    var onNext: () -> ()
     
     
     @State var tapTimestamp: [TimeInterval] = []
     @State var tapTimestampBool: [Bool] = []
-    
+    @State var tapIndicatorState: TapIndicatorState = .neutral {
+        didSet {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                if tapIndicatorState != .neutral {
+                    tapIndicatorState = .neutral
+                }
+            }
+        }
+    }
     
     var body: some View {
         VStack{
+            LevelView(currentIndex: bpmIndex )
+                .padding(.bottom, 38)
+            
             HStack{
                 Text("\(bpm) BPM")
-                    .padding(.leading, 36)
-                //                    .font(.custom("SF Pro Display", size: 14, weight: .subheadline))
-                Spacer()
-            }
+                //                    .padding(.leading, 36)
+                
+            }.padding(.bottom, 50)
             
             NotesView(notes: tapExercise.notes,
                       playerManager: playerManager,
@@ -41,16 +60,19 @@ struct TapExerciseView: View {
                       totalTime: totalTime,
                       onStart: onStart,
                       x: CGFloat(Config.BLOCK_WIDTH * generatedBlock.count / 2),
-                      onTap: onTapButton
+                      onTap: onTapButton,
+                      tapIndicatorState: $tapIndicatorState
             )
             
-            
             Spacer()
-            Text("index \(playerManager.playingIndex)")
-            Text("timestamp \(playerManager.playingTimestamp)")
-            Text("starttime \(playerManager.startTime)")
-            Text("endTime \(playerManager.endTime ?? 0)")
-            Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
+            
+            Group{
+                Text("index \(playerManager.playingIndex)")
+                Text("timestamp \(playerManager.playingTimestamp)")
+                Text("starttime \(playerManager.startTime)")
+                Text("endTime \(playerManager.endTime ?? 0)")
+                Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
+            }
             
             HStack{
                 ForEach(tapTimestampBool, id: \.self) { timeBool in
@@ -60,11 +82,25 @@ struct TapExerciseView: View {
                 }
             }.frame(width: 500, height: 30, alignment: .center)
             
-            if(!playerManager.isPlaying && playerManager.startTime > 0) {
-                Text("result \(getIsSuccess() ? "success" : "failed")")
+            HStack{
+                if(!playerManager.isPlaying && playerManager.startTime > 0) {
+                    Text("result \(getIsSuccess() ? "success" : "failed")")
+                }
             }
-            
+            Button("next") {
+                if(getIsSuccess()){
+                    goToNextLevel()
+                    
+                }
+            }
         }.padding(.top, 30)
+    }
+    
+    func goToNextLevel() {
+        onNext()
+        if bpmIndex < 2 {
+            playerManager.reInit(notes: tapExercise.notes, bpm: tapExercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM)
+        }
     }
     
     func getIsSuccess() -> Bool {
@@ -83,8 +119,9 @@ struct TapExerciseView: View {
         playerManager.enabled.toggle()
     };
     
-    func onTapButton() {
-        let tapTime = playerManager.displayLink.timestamp
+    func onTapButton(_ tapTime: TimeInterval) {
+        //        let tapTime = playerManager.displayLink.timestamp
+        guard playerManager.isPlaying else { return }
         tapTimestamp.append(tapTime)
         getIsOK(tapTime: tapTime)
     };
@@ -94,8 +131,10 @@ struct TapExerciseView: View {
         let currentTime = playerManager.playTime[playingIndex]
         let isRest = playingIndex > Config.OFFSET_BPM-1 && tapExercise.notes[playingIndex - Config.OFFSET_BPM].isRest
         if abs(tapTime - currentTime) < 0.3 && !isRest && playingIndex > Config.OFFSET_BPM-1 {
+            tapIndicatorState = .right
             tapTimestampBool.append(true)
         }else {
+            tapIndicatorState = .wrong
             tapTimestampBool.append(false)
         }
     };
@@ -110,17 +149,35 @@ struct NotesView: View {
     var onStart: () -> ()
     @State var x: CGFloat
     
-    var onTap: () -> ()
+    var onTap: (_ tapTime: TimeInterval) -> ()
+    @Binding var tapIndicatorState : TapIndicatorState
     
     var blockWidth = CGFloat(Config.BLOCK_WIDTH)
     
+    @State var isPressed : Bool = false
+    @State var buttonLabel : TapButtonState = .start
+    
+    @State var indicatorFrame : CGRect?
+    @State var indicatorSize : CGSize?
+    
+    @StateObject var coachmarkManager: CoachmarkManager = CoachmarkManager(type: .tap)
+    var coachmarkStepIndex : Int = 0
+    
     var body: some View {
+        
         ZStack{
+            let isShowIndicatorCm = coachmarkManager.coachmarkIndex == 0
+            let isShowMetronomeCm = coachmarkManager.coachmarkIndex == 1
             Rectangle()
                 .frame(width: blockWidth, height: 50, alignment: .center)
-                .foregroundColor(.blue)
+                .foregroundColor(isShowIndicatorCm ? .blue : tapIndicatorState == .right ? .green : tapIndicatorState == .wrong ? .red : .blue)
                 .offset(x: 0, y: 0)
                 .opacity(0.3)
+                .shadow(color: .white.opacity(isShowIndicatorCm ? 1 : 0), radius: 10)
+                .shadow(color: .white.opacity(isShowIndicatorCm ? 1 : 0), radius: 10)
+                .shadow(color: .white.opacity(isShowIndicatorCm ? 1 : 0), radius: 10)
+                .background(reader(isShowCoachmark: isShowIndicatorCm, type: .tap, coachmarkManager: coachmarkManager))
+                .zIndex(isShowIndicatorCm ? 1 : 0)
             Rectangle()
                 .frame(width: 1, height: 50, alignment: .center)
                 .foregroundColor(.black)
@@ -128,7 +185,7 @@ struct NotesView: View {
             
             VStack{
                 HStack(spacing: 0){
-                    ForEach(generatedBlock, id: \.self) { block in
+                    ForEach(Array(generatedBlock.enumerated()), id: \.offset) { (idx, block) in
                         HStack{
                             VStack{
                                 if(block.count == 2){
@@ -140,10 +197,23 @@ struct NotesView: View {
                                     //                                            .background(.red)
                                 }
                                 Spacer()
+                                
                                 if(block[0] == 1) {
-                                    Circle()
-                                        .frame(width: 7, height: 7)
-                                        .foregroundColor(.primaryColor)
+                                    if idx == 0 {
+                                        Circle()
+                                            .frame(width: 7, height: 7)
+                                            .foregroundColor(.secondaryLightColor)
+                                            .shadow(color: .white.opacity(isShowMetronomeCm ? 1 : 0), radius: 10)
+                                            .shadow(color: .white.opacity(isShowMetronomeCm ? 1 : 0), radius: 10)
+                                            .shadow(color: .white.opacity(isShowMetronomeCm ? 1 : 0), radius: 10)
+                                            .background(reader(isShowCoachmark: isShowMetronomeCm, type: .tap, coachmarkManager: coachmarkManager))
+                                            .zIndex(isShowMetronomeCm ? 1 : 0)
+                                    } else {
+                                        Circle()
+                                            .frame(width: 7, height: 7)
+                                            .foregroundColor(.secondaryLightColor)
+                                    }
+                                    
                                 }
                             }
                             .offset(x: -10, y: 0)
@@ -156,8 +226,9 @@ struct NotesView: View {
                     }
                 }.offset(x: x, y: 0)
                 
-            }
-            //
+            }.zIndex(isShowMetronomeCm || isShowIndicatorCm ? 1 : 0)
+            
+            //side
             HStack{
                 Rectangle()
                     .frame(width: 40, height: 80, alignment: .center)
@@ -170,17 +241,17 @@ struct NotesView: View {
                     .overlay(Rectangle()
                         .fill(Color.black).padding(.trailing, 36))
                     .foregroundColor(.white)
-                    .foregroundColor(.white)
                 
                 
             }
             .frame(width: UIScreen.main.bounds.width
                    , height: 70)
             
-        }
+        }.zIndex(1)
         
-        ButtonTap(playerManager: playerManager, onTap: { buttonState in
-            print("debug, player manager", playerManager.startTime)
+        Spacer()
+        
+        ButtonTap(playerManager: playerManager, onTap: { buttonState, tapTimestamp in
             if buttonState == .start || buttonState == .restart {
                 if(x < 0) {
                     x *= -1
@@ -190,54 +261,112 @@ struct NotesView: View {
                 }
                 onStart()
             } else if buttonState == .tap {
-                onTap()
+                onTap(tapTimestamp)
             }
         })
+    }
+    
+    private func reader(isShowCoachmark: Bool, type: CoachmarkType, coachmarkManager: CoachmarkManager) -> some View {
+        return GeometryReader { (geometry) -> AnyView in
+            AnyView(TapExerciseCoachmark(_frame: geometry.frame(in: CoordinateSpace.global), _size: geometry.size, coachMarkManager: coachmarkManager, isShowCoachmark: isShowCoachmark))
+        }
         
+    }
+}
+
+struct Triangle: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+        
+        return path
+    }
+}
+
+struct TapExerciseCoachmark: View {
+    var _frame : CGRect
+    var _size : CGSize
+    @ObservedObject var coachMarkManager: CoachmarkManager
+    var isShowCoachmark: Bool
+    
+    @State var coachmarkHeight: CGFloat = 0
+    
+    var body: some View {
+        if isShowCoachmark {
+            ZStack(alignment: .top){
+                Rectangle()
+                    .fill(Color.black)
+                    .opacity(0.35)
+                    .onTapGesture {
+                        coachMarkManager.nextCoachmark()
+                    }
+                
+                VStack{
+                    let coachmark = coachMarkManager.coachmarkData[coachMarkManager.coachmarkIndex]
+                    VStack{
+                        Triangle()
+                            .fill(.white)
+                            .frame(width: 27, height: 18)
+                            .padding(0)
+                            .offset(x: 0, y: 10)
+                        VStack(spacing: 0){
+                            Text("\(coachmark.description)")
+                        }
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 32)
+                        .frame(width: 321)
+                        .background(.white)
+                        .cornerRadius(24)
+                    }.background(
+                        GeometryReader { proxy in
+                            Color.clear
+                                .onAppear { /// 2.
+                                    coachmarkHeight = proxy.size.height
+                                }
+                        }
+                    )
+                }
+                .position(x: _frame.midX, y: _frame.midY + (coachmarkHeight/2) + (_size.height/2) + 5 )
+            }.offset(x: _frame.midX * -1 + (_size.width/2), y: _frame.midY * -1 + (_size.height/2))
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        } else {
+            Rectangle().fill(Color.clear)
+        }
     }
 }
 
 struct ButtonTap: View {
     @ObservedObject var playerManager : PlayerManager
-    var onTap: (_ buttonState: TapButtonState) -> ()
+    var onTap: (_ buttonState: TapButtonState, _ tapTimestamp: TimeInterval) -> ()
     
     var body: some View {
         //        Text("\(buttonState == .tap ? "tap" : "start")")
-        let buttonState : TapButtonState = playerManager.isPlaying && playerManager.playingTimestamp >= playerManager.startTime ? .tap : .start
-        Button(getButtonCopy(state: buttonState), action: {
-            onTap(buttonState)
+        let buttonState : TapButtonState = getButtonState()
+        Button(action: {
+            onTap(buttonState, playerManager.displayLink.timestamp)
+        }, label: {
+            TapButtonView(buttonState: buttonState, radius: 50)
         })
-        .buttonStyle(TapButtonStyle())
     }
     
-    func getButtonCopy(state: TapButtonState) -> String {
-        switch(state) {
-        case .start:
-            return "Start"
-        case .tap:
-            return "Tap"
-        case .restart:
-            return "Retry"
+    func getButtonState() -> TapButtonState {
+        if playerManager.playingTimestamp != -1 && playerManager.playingTimestamp >= playerManager.startTime && playerManager.playingTimestamp <= (playerManager.endTime ?? -1) {
+            return .tap
+        } else if playerManager.playingTimestamp > 0 && playerManager.playingTimestamp < playerManager.startTime {
+            return .ready
+        } else {
+            return .start
         }
     }
 }
 
-struct TapButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .frame(width: 120, height: 120, alignment: .center)
-            .padding()
-            .background(LinearGradient(gradient: Gradient(colors: [configuration.isPressed ? .gray : .grayFColor, .grayEColor]), startPoint: .top, endPoint: .bottom))
-            .foregroundColor(.secondaryColor)
-            .clipShape(Circle())
-            .animation(.easeOut(duration: 0.05), value: configuration.isPressed)
-        
-    }
-}
-
-struct TapExerciseView_Previews: PreviewProvider {
-    static var previews: some View {
-        TapExerciseView(tapExercise: Config.tapExercises[3], generatedBlock: Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: Config.tapExercises[3].notes), totalTime: Helper.getTotalTime(notes: Config.tapExercises[3].notes, bpm: Config.tapExercises[3].bpms[0], offsetBpm: Config.OFFSET_BPM), bpm: Config.tapExercises[3].bpms[0],
-                        playerManager: PlayerManager(notes: Config.tapExercises[3].notes, bpm: Config.tapExercises[3].bpms[0], offsetBpm: Config.OFFSET_BPM))
-    }
-}
+//struct TapExerciseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TapExerciseView(tapExercise: Config.tapExercises[3], generatedBlock: Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: Config.tapExercises[3].notes), totalTime: Helper.getTotalTime(notes: Config.tapExercises[3].notes, bpm: Config.tapExercises[3].bpms[0], offsetBpm: Config.OFFSET_BPM), bpm: Config.tapExercises[3].bpms[0],
+//                        playerManager: PlayerManager(notes: Config.tapExercises[3].notes, bpm: Config.tapExercises[3].bpms[0], offsetBpm: Config.OFFSET_BPM), onNext: {})
+//    }
+//}

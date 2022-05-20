@@ -51,6 +51,24 @@ class PlayerManager: ObservableObject, PlayerDelegate {
             selector: #selector(trackPlayIndex))
     }
     
+    func reInit(notes: [Note], bpm: Int, offsetBpm: Int = Config.OFFSET_BPM){
+        print("bpm", bpm)
+        self.noteInterval?.removeAll()
+        self.noteInterval = Helper.convertBeatToTimeInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
+        print("note interval", noteInterval as Any)
+        self.metronomeInterval?.removeAll()
+        self.metronomeInterval = Helper.getMetronomeBeatInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
+        print("metronome interval", metronomeInterval as Any)
+        self.players.removeAll()
+        self.setPlayers(noteInterval: noteInterval!, offsetBpm: offsetBpm, notes: notes)
+        self.metronomePlayers.removeAll()
+        self.setMetronomePlayers(metronomeInterval: metronomeInterval!)
+        self.displayLink = CADisplayLink(
+            target: self,
+            selector: #selector(trackPlayIndex))
+        self.cleanToRestart()
+    }
+    
     private func getHiHatPlayer(playerType: PlayerType) -> Player {
         return Player(fileName: "hihat", ext: "wav", playerType: playerType)
     }
