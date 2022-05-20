@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnBoardView: View {
     
-    var pageToBoard: [OnboardList]
+    var pageToBoard = OnList
     
     @State var selectedItem: Int = 1
     var body: some View {
@@ -113,7 +113,7 @@ var OnList = [
 
 struct OnBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardView(pageToBoard: OnList)
+        OnBoardView()
     }
 }
 
