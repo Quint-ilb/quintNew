@@ -33,6 +33,17 @@
 		C3CAFF58283699FD002ECBE8 /* MusicalNoteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAFF57283699FD002ECBE8 /* MusicalNoteTable.swift */; };
 		C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */; };
 		C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */; };
+		C849FC062839377300E96E3A /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC042839377300E96E3A /* OnBoardView.swift */; };
+		C849FC072839377300E96E3A /* OnBoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC052839377300E96E3A /* OnBoardList.swift */; };
+		C849FC0D283937CF00E96E3A /* PopUpInfoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC08283937CF00E96E3A /* PopUpInfoContentView.swift */; };
+		C849FC0E283937CF00E96E3A /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC09283937CF00E96E3A /* LevelView.swift */; };
+		C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC0A283937CF00E96E3A /* PopUpChallengeContentView.swift */; };
+		C849FC10283937CF00E96E3A /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC0B283937CF00E96E3A /* PopupView.swift */; };
+		C849FC11283937CF00E96E3A /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC0C283937CF00E96E3A /* Slider.swift */; };
+		C849FC16283937F400E96E3A /* PopUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC12283937F400E96E3A /* PopUpState.swift */; };
+		C849FC17283937F400E96E3A /* PopUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC13283937F400E96E3A /* PopUpInfo.swift */; };
+		C849FC18283937F400E96E3A /* CoachmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC14283937F400E96E3A /* CoachmarkManager.swift */; };
+		C849FC19283937F400E96E3A /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC15283937F400E96E3A /* Reward.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +74,17 @@
 		C3CAFF57283699FD002ECBE8 /* MusicalNoteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalNoteTable.swift; sourceTree = "<group>"; };
 		C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalNoteModel.swift; sourceTree = "<group>"; };
 		C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		C849FC042839377300E96E3A /* OnBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
+		C849FC052839377300E96E3A /* OnBoardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardList.swift; sourceTree = "<group>"; };
+		C849FC08283937CF00E96E3A /* PopUpInfoContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpInfoContentView.swift; sourceTree = "<group>"; };
+		C849FC09283937CF00E96E3A /* LevelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
+		C849FC0A283937CF00E96E3A /* PopUpChallengeContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpChallengeContentView.swift; sourceTree = "<group>"; };
+		C849FC0B283937CF00E96E3A /* PopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		C849FC0C283937CF00E96E3A /* Slider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		C849FC12283937F400E96E3A /* PopUpState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpState.swift; sourceTree = "<group>"; };
+		C849FC13283937F400E96E3A /* PopUpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpInfo.swift; sourceTree = "<group>"; };
+		C849FC14283937F400E96E3A /* CoachmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachmarkManager.swift; sourceTree = "<group>"; };
+		C849FC15283937F400E96E3A /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +117,7 @@
 		0A3B24DC282E8E2400A82AE8 /* quint */ = {
 			isa = PBXGroup;
 			children = (
+				C849FC032839377300E96E3A /* vieww */,
 				C31392B32830B4D800DAF78A /* view */,
 				0A3B250B282FC73600A82AE8 /* Utils */,
 				0A3B2504282EA08B00A82AE8 /* Classes */,
@@ -129,6 +152,10 @@
 		0A3B2504282EA08B00A82AE8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C849FC14283937F400E96E3A /* CoachmarkManager.swift */,
+				C849FC13283937F400E96E3A /* PopUpInfo.swift */,
+				C849FC12283937F400E96E3A /* PopUpState.swift */,
+				C849FC15283937F400E96E3A /* Reward.swift */,
 				0A3B24FC282E913600A82AE8 /* TapExercise.swift */,
 				0A3B24FE282E922500A82AE8 /* Beat.swift */,
 				0A3B2502282E947C00A82AE8 /* Note.swift */,
@@ -153,6 +180,11 @@
 			isa = PBXGroup;
 			children = (
 				C3CAFF5928369C7D002ECBE8 /* model */,
+				C849FC09283937CF00E96E3A /* LevelView.swift */,
+				C849FC0A283937CF00E96E3A /* PopUpChallengeContentView.swift */,
+				C849FC08283937CF00E96E3A /* PopUpInfoContentView.swift */,
+				C849FC0B283937CF00E96E3A /* PopupView.swift */,
+				C849FC0C283937CF00E96E3A /* Slider.swift */,
 				C31BC9CC2838009300EF1674 /* LockCircleView.swift */,
 				C31392B62830B52200DAF78A /* LearningView.swift */,
 				C31392B82830B56600DAF78A /* HomeView.swift */,
@@ -171,6 +203,15 @@
 				C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		C849FC032839377300E96E3A /* vieww */ = {
+			isa = PBXGroup;
+			children = (
+				C849FC042839377300E96E3A /* OnBoardView.swift */,
+				C849FC052839377300E96E3A /* OnBoardList.swift */,
+			);
+			path = vieww;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,19 +289,30 @@
 				0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */,
 				0A1E7948283542F700BB36B9 /* Nada.swift in Sources */,
 				0A1E794C2836A96B00BB36B9 /* Extentions.swift in Sources */,
+				C849FC11283937CF00E96E3A /* Slider.swift in Sources */,
+				C849FC19283937F400E96E3A /* Reward.swift in Sources */,
 				C31BC9CF283808B400EF1674 /* reference.swift in Sources */,
+				C849FC062839377300E96E3A /* OnBoardView.swift in Sources */,
+				C849FC0E283937CF00E96E3A /* LevelView.swift in Sources */,
 				0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */,
 				C31392B92830B56600DAF78A /* HomeView.swift in Sources */,
 				C31BC9CD2838009300EF1674 /* LockCircleView.swift in Sources */,
 				0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */,
 				0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */,
+				C849FC0D283937CF00E96E3A /* PopUpInfoContentView.swift in Sources */,
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
 				C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */,
+				C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
+				C849FC072839377300E96E3A /* OnBoardList.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */,
 				C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */,
 				0A3B2503282E947C00A82AE8 /* Note.swift in Sources */,
+				C849FC18283937F400E96E3A /* CoachmarkManager.swift in Sources */,
 				C3A95E532837327900EFCC4C /* TapButtonView.swift in Sources */,
+				C849FC16283937F400E96E3A /* PopUpState.swift in Sources */,
+				C849FC10283937CF00E96E3A /* PopupView.swift in Sources */,
+				C849FC17283937F400E96E3A /* PopUpInfo.swift in Sources */,
 				C31392B72830B52200DAF78A /* LearningView.swift in Sources */,
 				C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */,
 				0A3B24FF282E922500A82AE8 /* Beat.swift in Sources */,

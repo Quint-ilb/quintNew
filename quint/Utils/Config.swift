@@ -11,28 +11,28 @@ class Config {
     static var tapExercises : [TapExercise] = [
         TapExercise(
             name: "Full Note",
-            notes: [.fullNote],
+            notes: [.fullNote, .fullRest, .fullNote, .fullRest, .fullNote, .fullRest, .fullNote, .fullRest,],
             bpms: [60,80,120],
             info: [.fullNote, .fullRest],
             reward: .level1
         ),
         TapExercise(
             name: "Half Note",
-            notes: [.halfNote, .halfNote],
+            notes: [.halfNote, .halfRest, .halfNote, .halfRest, .halfNote, .halfNote, .halfNote, .halfRest, .halfNote, .halfRest, .halfNote, .halfRest, .halfNote, .halfNote, .halfNote, .halfRest,],
             bpms: [60,80,120],
             info: [.halfNote, .halfRest],
             reward: .level2
         ),
         TapExercise(
             name: "Quarter Note",
-            notes: [.quarterNote, .quarterNote, .quarterNote, .quarterNote],
+            notes: [.quarterNote, .quarterRest, .quarterNote, .quarterRest, .quarterRest, .quarterRest, .quarterRest, .quarterRest, .quarterNote, .quarterRest, .quarterNote, .quarterRest, .quarterRest, .quarterRest, .quarterRest, .quarterRest],
             bpms: [60,80, 100],
             info: [.quarterNote, .quarterRest],
             reward: .level3
         ),
         TapExercise(
             name: "Eighth Note",
-            notes: [.fullNote, .fullRest, .halfNote, .halfRest, .quarterNote, .quarterRest, .eighthNote, .eighthRest],
+            notes: [.quarterNote, .quarterRest, .quarterNote, .quarterRest, .quarterNote, .eighthNote, .quarterNote, .eighthRest],
             bpms: [120,120
                    ,120],
             info: [.eighthNote, .eighthRest],

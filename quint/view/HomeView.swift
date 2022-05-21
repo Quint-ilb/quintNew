@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct HomeView: View {
-    @ObservedObject var musicNM : MusicalNoteModel
+    
+    @ObservedObject var musicNM : MusicalNoteModel = MusicalNoteModel()
     @State var isActive : Bool = false
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -50,7 +52,6 @@ struct HomeView: View {
             //temp
             NavigationLink(destination: ExerciseView(rootIsActive: self.$isActive), isActive: self.$isActive) {
                 Text("to exercise view")
-            }
             }
         }
     }
