@@ -101,27 +101,35 @@ struct SettingView: View {
                                 Rectangle().fill(Color.gray).frame(width: 235, height: 1, alignment: .center)
                                     .padding([.trailing, .leading])
                                 
-                                VStack(alignment: .leading){
-                                    Text("Tell a Friend")
-                                        .font(.headline)
-                                        .bold()
-                                    Text("let your friends know our app")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
+                                Button(action: {tellaFriend()}) {
+                                    VStack(alignment: .leading){
+                                        Text("Tell a Friend")
+                                            .font(.headline)
+                                            .bold()
+                                            .foregroundColor(.black)
+                                        Text("let your friends know our app")
+                                            .font(.footnote)
+                                            .foregroundColor(.secondary)
+                                    }
                                 }
                                 .padding(.trailing, 83)
+                                
                                 Rectangle().fill(Color.gray).frame(width: 235, height: 1, alignment: .center)
                                     .padding([.trailing, .leading])
                                 
                                 VStack(alignment: .leading){
-                                    Text("About Us")
-                                        .font(.headline)
-                                        .bold()
-                                    Text("know us more")
-                                        .font(.footnote)
-                                        .foregroundColor(.secondary)
-                                }
-                                .padding(.trailing, 176)
+                                    NavigationLink(destination: AboutUsView() .navigationTitle("About Us")){
+                                        VStack(alignment: .leading){
+                                            Text("About Us")
+                                                .font(.headline)
+                                                .bold()
+                                            Text("know us more")
+                                                .font(.footnote)
+                                                .foregroundColor(.secondary)
+                                        }
+                                        .padding(.trailing, 176)
+                                    }
+                                
                                 Rectangle().fill(Color.gray).frame(width: 235, height: 1, alignment: .center)
                                     .padding([.trailing, .leading])
                                 
@@ -141,6 +149,119 @@ struct SettingView: View {
                 }
             }
         }
+    }
+}
+
+func tellaFriend() {
+        guard let urlShare = URL(string: "https://developer.apple.com/xcode/swiftui/") else { return }
+        let activityVC = UIActivityViewController(activityItems: [urlShare], applicationActivities: nil)
+           UIApplication.shared.windows.first?.rootViewController?.present(activityVC, animated: true, completion: nil)
+}
+
+
+struct AboutUsView: View {
+    var body: some View {
+        ScrollView{
+            VStack(alignment: .center){
+                HStack{
+                    Spacer()
+                    VStack{
+                        Image("memoR")
+                            .resizable()
+                            .frame(width: 99, height: 99)
+                            .padding(.bottom, -10)
+                        Text("Aldi")
+                            .bold()
+                            .font(.caption)
+                        Text("Product Manager")
+                            .font(.caption2)
+                    }
+                    VStack{
+                        Image("memoM")
+                            .resizable()
+                            .frame(width: 99, height: 99)
+                            .padding(.bottom, -10)
+                        Text("Kael")
+                            .bold()
+                            .font(.caption)
+                        Text("Developer")
+                            .font(.caption2)
+                    }
+                    VStack{
+                        Image("memoZ")
+                            .resizable()
+                            .frame(width: 99, height: 99)
+                            .padding(.bottom, -10)
+                        Text("Zakki")
+                            .bold()
+                            .font(.caption)
+                        Text("Developer")
+                            .font(.caption2)
+                    }
+                    Spacer()
+                }
+                HStack{
+                    Spacer()
+                    VStack{
+                        Image("memoW")
+                            .resizable()
+                            .frame(width: 99, height: 99)
+                            .padding(.bottom, -10)
+                        Text("Widya")
+                            .bold()
+                            .font(.caption)
+                        Text("Developer")
+                            .font(.caption2)
+                    }
+                    VStack{
+                        Image("memoJ")
+                            .resizable()
+                            .frame(width: 99, height: 99)
+                            .padding(.bottom, -10)
+                        Text("Jovanka")
+                            .bold()
+                            .font(.caption)
+                        Text("Designer")
+                            .font(.caption2)
+                    }
+                    Spacer()
+                }
+                .padding(.bottom, 30)
+                VStack(alignment: .leading){
+                    Text("We would like to ask you for a favour.")
+                        .font(.headline)
+                        .bold()
+                        
+                    Text("We would like to ask you for a small favour that can help learn music theory and hopefully help more people with understanding music theory.")
+                        .font(.subheadline)
+                }
+                .padding([.leading, .trailing],30)
+                .padding(.bottom)
+                VStack(alignment: .leading){
+                    Text("Why do we ask you for this and how it can be helpful for Note Trainer?")
+                        .font(.headline)
+                        .bold()
+                    Text("Apple basically grades apps by a lot of factors and one of the more important ones is reviews. This means that getting more reviews will help us rank higher and get more exposure.")
+                        .font(.subheadline)
+                }
+                .padding([.leading, .trailing],30)
+                .padding(.bottom)
+                VStack(alignment: .leading){
+                    Text("What does this mean to us? ")
+                        .font(.headline)
+                        .bold()
+                    Text("It would mean the world to us - literally. As indie developers working on Note Trainer as a side project, the feedback from our users is precious. So we will really appreciate your 15 seconds and will be more than happy to finish our day reading your reviews.")
+                        .font(.subheadline)
+                }
+                .padding([.leading, .trailing],30)
+                .padding(.bottom)
+            }
+        }
+    }
+}
+struct AboutUsView_Previews: PreviewProvider {
+    static var previews: some View {
+        AboutUsView()
     }
 }
 
@@ -204,12 +325,5 @@ If you contact us through this email, we will see your name and email address. Y
                 .padding([.trailing, .leading], 20)
             }
         }
-    }
-}
-
-
-struct PrivacyPolicyView_Previews: PreviewProvider {
-    static var previews: some View {
-        PrivacyPolicyView()
     }
 }
