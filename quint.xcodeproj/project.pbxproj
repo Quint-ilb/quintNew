@@ -44,6 +44,8 @@
 		C849FC17283937F400E96E3A /* PopUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC13283937F400E96E3A /* PopUpInfo.swift */; };
 		C849FC18283937F400E96E3A /* CoachmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC14283937F400E96E3A /* CoachmarkManager.swift */; };
 		C849FC19283937F400E96E3A /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC15283937F400E96E3A /* Reward.swift */; };
+		CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8B283945C10096C56B /* ProgressBar.swift */; };
+		CB8D5A8E283945C10096C56B /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8C283945C10096C56B /* RhythmView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +87,8 @@
 		C849FC13283937F400E96E3A /* PopUpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpInfo.swift; sourceTree = "<group>"; };
 		C849FC14283937F400E96E3A /* CoachmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachmarkManager.swift; sourceTree = "<group>"; };
 		C849FC15283937F400E96E3A /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		CB8D5A8B283945C10096C56B /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		CB8D5A8C283945C10096C56B /* RhythmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +212,8 @@
 		C849FC032839377300E96E3A /* vieww */ = {
 			isa = PBXGroup;
 			children = (
+				CB8D5A8B283945C10096C56B /* ProgressBar.swift */,
+				CB8D5A8C283945C10096C56B /* RhythmView.swift */,
 				C849FC042839377300E96E3A /* OnBoardView.swift */,
 				C849FC052839377300E96E3A /* OnBoardList.swift */,
 			);
@@ -304,6 +310,8 @@
 				C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */,
 				C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
+				CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */,
+				CB8D5A8E283945C10096C56B /* RhythmView.swift in Sources */,
 				C849FC072839377300E96E3A /* OnBoardList.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */,
 				C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */,
