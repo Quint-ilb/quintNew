@@ -139,6 +139,7 @@ struct TapExerciseView: View {
         }else {
             if isSuccess {
                 return .successReward(reward: tapExercise.reward!, onPressPrimary: {
+                    UserDefaults.standard.set(tapExercise.reward?.level, forKey: "exercise-\(tapExercise.category.rawValue)")
                     presentation.wrappedValue.dismiss()
                 }, onPressSecondary: {})
             } else {
@@ -317,7 +318,7 @@ struct NotesView: View {
                 if(x < 0) {
                     x *= -1
                 }
-                withAnimation(.linear(duration: totalTime).delay(0.75) ){
+                withAnimation(.linear(duration: totalTime).delay(0.8) ){
                     x = -1 * x
                 }
                 onStart()

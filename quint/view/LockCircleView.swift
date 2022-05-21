@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LockCircleView: View {
+    var isLocked: Bool
     var body: some View {
         ZStack{
             Circle()
@@ -16,13 +17,13 @@ struct LockCircleView: View {
                 .foregroundColor(.gray)
                 .frame(width: 54.35, height: 54.35)
             
-            Image("locked")
+            Image(isLocked ? "locked" : "unlocked")
         }
     }
 }
 
 struct LockCircleView_Previews: PreviewProvider {
     static var previews: some View {
-        LockCircleView()
+        LockCircleView(isLocked: true)
     }
 }

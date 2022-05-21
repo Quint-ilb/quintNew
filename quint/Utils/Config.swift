@@ -14,6 +14,7 @@ class Config {
             notes: [.fullNote, .fullRest, .fullNote, .fullRest, .fullNote, .fullRest, .fullNote, .fullRest,],
             bpms: [60,80,120],
             info: [.fullNote, .fullRest],
+            category: .rhythm,
             reward: .level1
         ),
         TapExercise(
@@ -21,6 +22,7 @@ class Config {
             notes: [.halfNote, .halfRest, .halfNote, .halfRest, .halfNote, .halfNote, .halfNote, .halfRest, .halfNote, .halfRest, .halfNote, .halfRest, .halfNote, .halfNote, .halfNote, .halfRest,],
             bpms: [60,80,120],
             info: [.halfNote, .halfRest],
+            category: .rhythm,
             reward: .level2
         ),
         TapExercise(
@@ -28,6 +30,7 @@ class Config {
             notes: [.quarterNote, .quarterRest, .quarterNote, .quarterRest, .quarterRest, .quarterRest, .quarterRest, .quarterRest, .quarterNote, .quarterRest, .quarterNote, .quarterRest, .quarterRest, .quarterRest, .quarterRest, .quarterRest],
             bpms: [60,80, 100],
             info: [.quarterNote, .quarterRest],
+            category: .rhythm,
             reward: .level3
         ),
         TapExercise(
@@ -36,6 +39,7 @@ class Config {
             bpms: [120,120
                    ,120],
             info: [.eighthNote, .eighthRest],
+            category: .rhythm,
             reward: .level4
         )
         

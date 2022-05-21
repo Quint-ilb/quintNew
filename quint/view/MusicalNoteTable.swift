@@ -10,6 +10,7 @@ import SwiftUI
 struct MusicalNoteTable: View {
     
     var musical : MusicalNote
+    var isLocked : Bool
     
     var body: some View {
             HStack{
@@ -25,7 +26,7 @@ struct MusicalNoteTable: View {
                     Spacer()
                     
                     HStack(alignment:.lastTextBaseline){
-                        LockCircleView()
+                        LockCircleView(isLocked: isLocked)
                     }
                 }
             }
