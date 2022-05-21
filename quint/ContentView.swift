@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ContentView: View {
     
+    var musicNM : MusicalNoteModel
+    
     //key : value
     @AppStorage("isPassOnboarding") var isShowOnboarding : Bool = true
     
@@ -24,6 +26,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(musicNM: MusicalNoteModel())
     }
 }

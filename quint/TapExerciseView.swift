@@ -22,7 +22,8 @@ enum TapIndicatorState {
 
 struct TapExerciseView: View {
     
-    @Binding var shouldPopToRootView : Bool
+    @Environment(\.presentationMode) var presentation
+    
     
     var tapExercise: TapExercise
     var generatedBlock : [[Int]]
@@ -132,19 +133,20 @@ struct TapExerciseView: View {
                 return .failedDefault(onPressPrimary: {
                     playerManager.cleanToRestart()
                 }, onPressSecondary: {
-                    shouldPopToRootView = false
+                    presentation.wrappedValue.dismiss()
                 })
             }
         }else {
             if isSuccess {
                 return .successReward(reward: tapExercise.reward!, onPressPrimary: {
-                    shouldPopToRootView = false
+                    UserDefaults.standard.set(tapExercise.reward?.level, forKey: "exercise-\(tapExercise.category.rawValue)")
+                    presentation.wrappedValue.dismiss()
                 }, onPressSecondary: {})
             } else {
                 return .failedReward(reward: tapExercise.reward!, onPressPrimary: {
                     playerManager.cleanToRestart()
                 }, onPressSecondary: {
-                    shouldPopToRootView = false
+                    presentation.wrappedValue.dismiss()
                 })
             }
         }
@@ -316,7 +318,7 @@ struct NotesView: View {
                 if(x < 0) {
                     x *= -1
                 }
-                withAnimation(.linear(duration: totalTime).delay(0.75) ){
+                withAnimation(.linear(duration: totalTime).delay(0.8) ){
                     x = -1 * x
                 }
                 onStart()

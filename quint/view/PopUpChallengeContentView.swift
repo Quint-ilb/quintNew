@@ -18,7 +18,7 @@ struct PopUpChallengeContentView: View {
                     .frame(width: 324, height: 239, alignment: .center)
                 Image(data.image)
                     .resizable()
-                    .frame(width: 88, height: 150)
+                    .frame(width: 110, height: 110)
             }
             Text(data.title)
                 .font(.system(size: 22, weight: .bold))

@@ -9,8 +9,9 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var musicNM : MusicalNoteModel = MusicalNoteModel()
-    @State var isActive : Bool = false
+    @AppStorage("exercise-\(ExerciseCategory.rhythm.rawValue)") var finishedlevel : Int = 0
+    
+    var musicNM : MusicalNoteModel = MusicalNoteModel()
     
     var body: some View {
         NavigationView {
@@ -27,8 +28,9 @@ struct HomeView: View {
                     
                     
                     ZStack {
-                        CircularProgressView()
-                        Text("80%")
+                        let progress : Double = Double(1) / Double(4) * Double(finishedlevel)
+                        CircularProgressView(progress: progress)
+                        Text("\(String(format: "%.0f", (progress*100)))%")
                             .font(.system(size: 32, weight: .semibold))
                             .foregroundColor(.gray)
                     }
@@ -41,18 +43,27 @@ struct HomeView: View {
                     
                     
                     List {
-                        ForEach(musicNM.musicals){
-                            music in MusicalNoteTable(musical: music)
+                        ForEach(0..<musicNM.musicals.count){ i in
+                            if(musicNM.musicals[i].exercise != nil) {
+                                NavigationLink(destination: ExerciseView(exercise: musicNM.musicals[i].exercise!)) {
+                                    MusicalNoteTable(musical: musicNM.musicals[i], isLocked: finishedlevel+1 < musicNM.musicals[i].level!)
+                                }.disabled( finishedlevel+1 < musicNM.musicals[i].level! )
+                            } else {
+                                NavigationLink(destination: RhythmView()){
+                                    MusicalNoteTable(musical: musicNM.musicals[i], isLocked: false)
+//                                        .navigationBarHidden(true)
+                                }
+                            }
+                            
                         }
                     }
                 }
             }
-            .navigationTitle("Dashboard")
+            .navigationBarTitle("Dashboard")
+            
             
             //temp
-            NavigationLink(destination: ExerciseView(rootIsActive: self.$isActive), isActive: self.$isActive) {
-                Text("to exercise view")
-            }
+            
         }
     }
 }

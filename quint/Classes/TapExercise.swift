@@ -15,6 +15,11 @@ struct TapExercise {
     var isLocked: Bool = true
     var bpms: [Int]
     var info: [PopUpInfo]
+    var category: ExerciseCategory
     var reward : Reward?
+}
+
+enum ExerciseCategory : String {
+    case rhythm = "rhythm"
 }
 
