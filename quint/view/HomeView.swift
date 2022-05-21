@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @ObservedObject var musicNM : MusicalNoteModel = MusicalNoteModel()
+    var musicNM : MusicalNoteModel = MusicalNoteModel()
     @State var isActive : Bool = false
     
     var body: some View {
@@ -41,8 +41,17 @@ struct HomeView: View {
                     
                     
                     List {
-                        ForEach(musicNM.musicals){
-                            music in MusicalNoteTable(musical: music)
+                        ForEach(0..<musicNM.musicals.count){ i in
+                            if(musicNM.musicals[i].exercise != nil) {
+                                NavigationLink(destination: AnyView(ExerciseView(rootIsActive: self.$isActive, exercise: musicNM.musicals[i].exercise!)), isActive: self.$isActive) {
+                                    MusicalNoteTable(musical: musicNM.musicals[i])
+                                }
+                            } else {
+                                NavigationLink(destination: AnyView(RhythmView())){
+                                    MusicalNoteTable(musical: musicNM.musicals[i])
+                                }
+                            }
+                            
                         }
                     }
                 }
@@ -50,9 +59,7 @@ struct HomeView: View {
             .navigationTitle("Dashboard")
             
             //temp
-            NavigationLink(destination: ExerciseView(rootIsActive: self.$isActive), isActive: self.$isActive) {
-                Text("to exercise view")
-            }
+            
         }
     }
 }

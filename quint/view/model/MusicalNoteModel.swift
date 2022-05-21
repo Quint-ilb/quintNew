@@ -8,19 +8,21 @@
 import Foundation
 import SwiftUI
 
-struct MusicalNote : Identifiable, Equatable {
-    var id: String = UUID().uuidString
+struct MusicalNote {
+//    var id: String = UUID().uuidString
     var name: String
     var image: String
+    var exercise: TapExercise?
+    
 }
 
-class MusicalNoteModel : Identifiable, ObservableObject{
-    @Published var musicals : [MusicalNote] = [
+class MusicalNoteModel {
+    var musicals : [MusicalNote] = [
         MusicalNote(name: "Rythm Introduction", image: "G"),
-        MusicalNote(name: "Whole", image: "fullNote"),
-        MusicalNote(name: "Half", image: "halfNote"),
-        MusicalNote(name: "Quarter", image: "quarterNote"),
-        MusicalNote(name: "Eight", image: "eighthNote")
+        MusicalNote(name: "Whole", image: "fullNote", exercise: Config.tapExercises[0]),
+        MusicalNote(name: "Half", image: "halfNote", exercise: Config.tapExercises[1]),
+        MusicalNote(name: "Quarter", image: "quarterNote", exercise: Config.tapExercises[2]),
+        MusicalNote(name: "Eight", image: "eighthNote", exercise: Config.tapExercises[3])
 
         ]
 }

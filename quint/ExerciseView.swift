@@ -11,7 +11,7 @@ struct ExerciseView: View {
     
     @Binding var rootIsActive : Bool
     
-    var exercise: TapExercise = Config.tapExercises[3]
+    var exercise: TapExercise
     @State var bpmIndex : Int = 0
    
     
