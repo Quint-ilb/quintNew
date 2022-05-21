@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class Helper {
     static func convertBeatToMs(notes: [Note], bpm: Int) -> [Int]{
@@ -90,5 +91,9 @@ class Helper {
         res += Double(offsetBpm)
         print("debug total time", res * interval, res, bpm, offsetBpm, interval)
         return res * interval
+    }
+    
+    static func getXInitialOffset(generatedBlock: [[Int]]) -> CGFloat {
+        return CGFloat(Config.BLOCK_WIDTH * generatedBlock.count / 2)
     }
 }

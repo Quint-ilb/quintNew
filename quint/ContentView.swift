@@ -8,8 +8,17 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    //key : value
+    @AppStorage("isPassOnboarding") var isShowOnboarding : Bool = true
+    
     var body: some View {
-        ExerciseView()
+        if (isShowOnboarding) {
+            OnBoardView()
+        }else {
+            HomeView()
+//            ExerciseView()
+        }
     }
 }
 

@@ -133,7 +133,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
         print("Stoping sound")
     }
     
-    private func cleanToRestart() {
+    func cleanToRestart() {
         startIndex = 0
         metronomeStartIndex = 0
         playingIndex = -1

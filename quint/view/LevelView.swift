@@ -9,19 +9,18 @@ import SwiftUI
 
 struct LevelView: View {
     
-    var currentIndex: Int
+    var totalDone: Int
     var totalLevel: Int = 3
     
     var body: some View {
         ZStack {
-            Text("\(currentIndex)")
             Rectangle()
                 .foregroundColor(.secondaryColor)
                 .frame(width: 200, height: 2)
             HStack{
                 ForEach(1..<totalLevel+1) { i in
                     ZStack{
-                        if(i-1 < currentIndex) {
+                        if(i <= totalDone) {
                             Circle()
                                 .fill(
                                     LinearGradient(gradient: Gradient(colors: [.secondaryColor, .primaryColor]), startPoint: .topLeading, endPoint: .bottomTrailing)
@@ -34,13 +33,11 @@ struct LevelView: View {
                                 .frame(width: 59, height: 59, alignment: .center)
                         }
                         
-                        if(i-1 < currentIndex) {
+                        if(i <= totalDone) {
                             Image(systemName: "checkmark").foregroundColor(.white)
                         } else {
                             Text("\(i)")
-                            
                         }
-                        
                     }
                     if i < totalLevel{
                         Spacer()
