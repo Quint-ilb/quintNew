@@ -23,8 +23,8 @@
 		0A3B250A282F7DD300A82AE8 /* sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B2509282F7DD300A82AE8 /* sound.m4a */; };
 		CB8D5A802836784B0096C56B /* OnBoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A7F2836784B0096C56B /* OnBoardList.swift */; };
 		CB8D5A82283678500096C56B /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A81283678500096C56B /* OnBoardView.swift */; };
-		CB8D5A84283678BB0096C56B /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A83283678BB0096C56B /* PopupView.swift */; };
 		CB8D5A862837C2780096C56B /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A852837C2780096C56B /* RhythmView.swift */; };
+		CB8D5A8A283818C70096C56B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A89283818C70096C56B /* ProgressBar.swift */; };
 		CBC3C9682836757B0020310B /* hihat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = CBC3C9672836757B0020310B /* hihat.m4a */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,8 @@
 		0A3B2509282F7DD300A82AE8 /* sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.m4a; sourceTree = "<group>"; };
 		CB8D5A7F2836784B0096C56B /* OnBoardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardList.swift; sourceTree = "<group>"; };
 		CB8D5A81283678500096C56B /* OnBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
-		CB8D5A83283678BB0096C56B /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		CB8D5A852837C2780096C56B /* RhythmView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
+		CB8D5A89283818C70096C56B /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CBC3C9672836757B0020310B /* hihat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hihat.m4a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -138,8 +138,8 @@
 			children = (
 				CB8D5A7F2836784B0096C56B /* OnBoardList.swift */,
 				CB8D5A81283678500096C56B /* OnBoardView.swift */,
-				CB8D5A83283678BB0096C56B /* PopupView.swift */,
 				CB8D5A852837C2780096C56B /* RhythmView.swift */,
+				CB8D5A89283818C70096C56B /* ProgressBar.swift */,
 			);
 			path = vieww;
 			sourceTree = "<group>";
@@ -222,9 +222,9 @@
 				0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */,
 				CB8D5A862837C2780096C56B /* RhythmView.swift in Sources */,
 				0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */,
+				CB8D5A8A283818C70096C56B /* ProgressBar.swift in Sources */,
 				0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */,
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
-				CB8D5A84283678BB0096C56B /* PopupView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Lib.swift in Sources */,
 				0A3B2503282E947C00A82AE8 /* Note.swift in Sources */,
