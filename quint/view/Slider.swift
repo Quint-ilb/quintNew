@@ -18,3 +18,4 @@ struct Slider_Previews: PreviewProvider {
         Slider()
     }
 }
+
