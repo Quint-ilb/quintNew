@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct HomeView: View {
+    @State var isActive : Bool = false
     var body: some View {
-
+        
         NavigationView{
             ZStack{
                 Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
@@ -40,20 +41,16 @@ struct HomeView: View {
                         .frame(width: 360, alignment: .leading)
                     
                     CircularProgressView()
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    
                     .navigationTitle("Dashboard")
                 }
             }
+            
+            //temp
+            NavigationLink(destination: ExerciseView(rootIsActive: self.$isActive), isActive: self.$isActive) {
+                Text("to exercise view")
+                            }
+           
+            
         }
     }
 }

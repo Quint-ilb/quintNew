@@ -14,5 +14,7 @@ struct TapExercise {
     var progress: Double = 0.0
     var isLocked: Bool = true
     var bpms: [Int]
+    var info: [PopUpInfo]
+    var reward : Reward?
 }
 

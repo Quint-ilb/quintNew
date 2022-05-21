@@ -9,25 +9,37 @@ import SwiftUI
 
 struct ExerciseView: View {
     
+    @Binding var rootIsActive : Bool
+    
     var exercise: TapExercise = Config.tapExercises[3]
     @State var bpmIndex : Int = 0
+   
     
     var body: some View {
-        TapExerciseView(tapExercise: exercise,
-                        
-                        generatedBlock: Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes),
-                        
-                        totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
-                        
-                        bpm: exercise.bpms[bpmIndex],
-                        bpmIndex : $bpmIndex,
-                        
-                        playerManager: PlayerManager(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
-                        
-                        onNext: onPressNext
-                        
-        )
+        let generatedBlock = Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes)
+            TapExerciseView(
+                shouldPopToRootView: $rootIsActive,
+                tapExercise: exercise,
+                            
+                            generatedBlock: generatedBlock,
+                            
+                            totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                            
+                            bpm: exercise.bpms[bpmIndex],
+                            
+                            bpmIndex : $bpmIndex,
+                            
+                            playerManager: PlayerManager(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                            
+                            onNext: onPressNext,
+                            x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
+            )
+            
+            
+        
     }
+    
+    
     
     func onPressNext() {
         if bpmIndex < 2 {
@@ -36,8 +48,8 @@ struct ExerciseView: View {
     }
 }
 
-struct ExerciseView_Previews: PreviewProvider {
-    static var previews: some View {
-        ExerciseView(exercise: Config.tapExercises[3])
-    }
-}
+//struct ExerciseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ExerciseView(rootIsActive: false, exercise: Config.tapExercises[3])
+//    }
+//}
