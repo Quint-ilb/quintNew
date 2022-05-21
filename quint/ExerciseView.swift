@@ -9,7 +9,6 @@ import SwiftUI
 
 struct ExerciseView: View {
     
-    @Binding var rootIsActive : Bool
     
     var exercise: TapExercise
     @State var bpmIndex : Int = 0
@@ -18,7 +17,6 @@ struct ExerciseView: View {
     var body: some View {
         let generatedBlock = Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes)
             TapExerciseView(
-                shouldPopToRootView: $rootIsActive,
                 tapExercise: exercise,
                             
                             generatedBlock: generatedBlock,

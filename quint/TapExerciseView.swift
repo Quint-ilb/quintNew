@@ -22,7 +22,8 @@ enum TapIndicatorState {
 
 struct TapExerciseView: View {
     
-    @Binding var shouldPopToRootView : Bool
+    @Environment(\.presentationMode) var presentation
+    
     
     var tapExercise: TapExercise
     var generatedBlock : [[Int]]
@@ -132,19 +133,19 @@ struct TapExerciseView: View {
                 return .failedDefault(onPressPrimary: {
                     playerManager.cleanToRestart()
                 }, onPressSecondary: {
-                    shouldPopToRootView = false
+                    presentation.wrappedValue.dismiss()
                 })
             }
         }else {
             if isSuccess {
                 return .successReward(reward: tapExercise.reward!, onPressPrimary: {
-                    shouldPopToRootView = false
+                    presentation.wrappedValue.dismiss()
                 }, onPressSecondary: {})
             } else {
                 return .failedReward(reward: tapExercise.reward!, onPressPrimary: {
                     playerManager.cleanToRestart()
                 }, onPressSecondary: {
-                    shouldPopToRootView = false
+                    presentation.wrappedValue.dismiss()
                 })
             }
         }

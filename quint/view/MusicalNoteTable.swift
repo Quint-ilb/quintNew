@@ -14,7 +14,7 @@ struct MusicalNoteTable: View {
     var body: some View {
             HStack{
                 HStack{
-                    Text("\(musical.exercise?.name ?? "")")
+//                    Text("\(musical.exercise?.name ?? "")")
                     Image(musical.image)
                         .resizable()
                         .frame(width: 55, height: 55)

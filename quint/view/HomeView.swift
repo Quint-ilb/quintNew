@@ -10,7 +10,6 @@ import SwiftUI
 struct HomeView: View {
     
     var musicNM : MusicalNoteModel = MusicalNoteModel()
-    @State var isActive : Bool = false
     
     var body: some View {
         NavigationView {
@@ -43,12 +42,13 @@ struct HomeView: View {
                     List {
                         ForEach(0..<musicNM.musicals.count){ i in
                             if(musicNM.musicals[i].exercise != nil) {
-                                NavigationLink(destination: AnyView(ExerciseView(rootIsActive: self.$isActive, exercise: musicNM.musicals[i].exercise!)), isActive: self.$isActive) {
+                                NavigationLink(destination: AnyView(ExerciseView(exercise: musicNM.musicals[i].exercise!))) {
                                     MusicalNoteTable(musical: musicNM.musicals[i])
                                 }
                             } else {
                                 NavigationLink(destination: AnyView(RhythmView())){
                                     MusicalNoteTable(musical: musicNM.musicals[i])
+//                                        .navigationBarHidden(true)
                                 }
                             }
                             
@@ -56,7 +56,8 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationTitle("Dashboard")
+            .navigationBarTitle("Dashboard")
+            
             
             //temp
             
