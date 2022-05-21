@@ -11,7 +11,6 @@ struct OnBoardView: View {
     
     var pageToBoard: [OnboardList] = OnList
     
-    
     @State var selectedItem: Int = 1
     var body: some View {
         ZStack{
@@ -101,7 +100,7 @@ var OnList = [
 
 struct OnBoardView_Previews: PreviewProvider {
     static var previews: some View {
-        OnBoardView(pageToBoard: OnList)
+        OnBoardView()
     }
 }
 
