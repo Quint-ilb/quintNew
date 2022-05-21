@@ -8,58 +8,52 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @ObservedObject var musicNM : MusicalNoteModel
+    
     var body: some View {
-
-        NavigationView{
-            ZStack{
+        
+        NavigationView {
+            ZStack {
                 Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
                     .ignoresSafeArea()
-
-        ZStack{
-            RoundedRectangle(cornerRadius: 22)
-                .stroke(.black)
-                .padding(.bottom)
-                .frame(width: 356, height: 154)
-            
-            HStack {
-                VStack{
-                    Text("Lorem Ipsum dolor...")
-                        .font(.system(size: 10))
-                    Text("Lorem ipsum dolor sit amet, consectetur")
-                        .font(.system(size: 8))
-                    Text("adipiscing elit, sed do eiusmod tempor")
-                        .font(.system(size: 8))
-                }
-
                 
                 VStack {
                     Text("Progress")
-                        .font(.system(size: 20))
-                        .fontWeight(.semibold)
-                        .opacity(60.0)
-                        .frame(width: 360, alignment: .leading)
-                    
-                    CircularProgressView()
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.gray)
+                        .frame(width: 340, height: 24, alignment: .leading)
+                        .padding()
                     
                     
+                    ZStack {
+                        CircularProgressView()
+                        Text("80%")
+                            .font(.system(size: 32, weight: .semibold))
+                            .foregroundColor(.gray)
+                    }
+                    
+                    Text("Musical Note")
+                        .font(.system(size: 20, weight: .semibold))
+                        .foregroundColor(.gray)
+                        .frame(width: 340, height: 24, alignment: .leading)
+                        .padding()
                     
                     
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                    .navigationTitle("Dashboard")
+                    List {
+                        ForEach(musicNM.musicals){
+                            music in MusicalNoteTable(musical: music)
+                        }
+                    }
                 }
             }
+            .navigationTitle("Dashboard")
         }
     }
 }
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(musicNM: MusicalNoteModel())
     }
 }

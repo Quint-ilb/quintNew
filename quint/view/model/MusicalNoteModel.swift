@@ -15,8 +15,8 @@ struct MusicalNote : Identifiable, Equatable {
 }
 
 class MusicalNoteModel : Identifiable, ObservableObject{
-    @Published var musical : [MusicalNote] = [
-        MusicalNote(name: "Rythm Introduction", image: "GNote"),
+    @Published var musicals : [MusicalNote] = [
+        MusicalNote(name: "Rythm Introduction", image: "G"),
         MusicalNote(name: "Whole", image: "fullNote"),
         MusicalNote(name: "Half", image: "halfNote"),
         MusicalNote(name: "Quarter", image: "quarterNote"),

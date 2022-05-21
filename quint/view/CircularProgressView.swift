@@ -38,7 +38,7 @@ struct CircularProgressView: View {
         .frame(width: 105.72, height: 105.72)
         .padding()
         .onAppear(){
-            progress = 1
+            progress = 0.8
         }
     }
 }
