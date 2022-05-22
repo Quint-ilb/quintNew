@@ -64,8 +64,4 @@ struct Player {
         audioPlayer?.stop()
     }
     
-    func setRate(rate: Float) {
-        audioPlayer?.enableRate = true
-        audioPlayer?.rate = rate
-    }
 }

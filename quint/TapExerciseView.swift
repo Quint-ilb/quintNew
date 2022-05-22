@@ -7,6 +7,19 @@
 
 import SwiftUI
 
+enum TapButtonState: String {
+    case start = "Start"
+    case tap = "Tap"
+    case ready = "Ready"
+    case restart = "Restart"
+}
+
+enum TapIndicatorState {
+    case right
+    case wrong
+    case neutral
+}
+
 struct TapExerciseView: View {
     
     @Environment(\.presentationMode) var presentation
@@ -256,7 +269,7 @@ struct NotesView: View {
                                     Image(block[1] != 0 ? notes[i].image : "" )
                                         .resizable()
                                         .aspectRatio(1, contentMode: .fit)
-                                        .frame(width: 30, height: 40, alignment: .bottom)
+                                        .frame(width: 20, height: 30, alignment: .bottom)
                                     //                                            .background(.red)
                                 }
                                 Spacer()
@@ -314,7 +327,7 @@ struct NotesView: View {
         
         Spacer()
         
-        ButtonTapView(playerManager: playerManager, onTap: { buttonState, tapTimestamp in
+        ButtonTap(playerManager: playerManager, onTap: { buttonState, tapTimestamp in
             if buttonState == .start || buttonState == .restart {
                 onStart()
             } else if buttonState == .tap {
@@ -332,3 +345,113 @@ struct NotesView: View {
     
     
 }
+
+func reader(isShowCoachmark: Bool, type: CoachmarkType, coachmarkManager: CoachmarkManager) -> some View {
+    return GeometryReader { (geometry) -> AnyView in
+        AnyView(TapExerciseCoachmark(_frame: geometry.frame(in: CoordinateSpace.global), _size: geometry.size, coachMarkManager: coachmarkManager, isShowCoachmark: isShowCoachmark))
+    }
+    
+}
+
+struct Triangle: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        
+        path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+        path.addLine(to: CGPoint(x: rect.minX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+        path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+        
+        return path
+    }
+}
+
+struct TapExerciseCoachmark: View {
+    var _frame : CGRect
+    var _size : CGSize
+    @ObservedObject var coachMarkManager: CoachmarkManager
+    var isShowCoachmark: Bool
+    
+    @State var coachmarkHeight: CGFloat = 0
+    
+    var body: some View {
+        if isShowCoachmark {
+            ZStack(alignment: .top){
+                Rectangle()
+                    .fill(Color.black)
+                    .opacity(0.35)
+                    .onTapGesture {
+                        coachMarkManager.nextCoachmark()
+                    }
+                
+                VStack{
+                    let coachmark = coachMarkManager.coachmarkData[coachMarkManager.coachmarkIndex]
+                    VStack{
+                        Triangle()
+                            .fill(.white)
+                            .frame(width: 27, height: 18)
+                            .padding(0)
+                            .offset(x: 0, y: 10)
+                        VStack(spacing: 0){
+                            Text("\(coachmark.description)")
+                                .font(.system(size: 12))
+                        }
+                        .padding(.vertical, 12)
+                        .padding(.horizontal, 32)
+                        .frame(width: 321)
+                        .background(.white)
+                        .cornerRadius(24)
+                        Text("Tap anywhere to next")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 14)
+                    }.background(
+                        GeometryReader { proxy in
+                            Color.clear
+                                .onAppear { /// 2.
+                                    coachmarkHeight = proxy.size.height
+                                }
+                        }
+                    )
+                }
+                .position(x: _frame.midX, y: _frame.midY + (coachmarkHeight/2) + (_size.height/2) + 5 )
+            }.offset(x: _frame.midX * -1 + (_size.width/2), y: _frame.midY * -1 + (_size.height/2))
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height, alignment: .center)
+        } else {
+            Rectangle().fill(Color.clear)
+        }
+    }
+}
+
+struct ButtonTap: View {
+    @ObservedObject var playerManager : PlayerManager
+    var onTap: (_ buttonState: TapButtonState, _ tapTimestamp: TimeInterval) -> ()
+    
+    var body: some View {
+        //        Text("\(buttonState == .tap ? "tap" : "start")")
+        let buttonState : TapButtonState = getButtonState()
+        Button(action: {
+            onTap(buttonState, playerManager.displayLink.timestamp)
+        }, label: {
+            TapButtonView(buttonState: buttonState, radius: 50)
+        })
+    }
+    
+    func getButtonState() -> TapButtonState {
+        if playerManager.playingTimestamp != -1 && playerManager.playingTimestamp >= playerManager.startTime && playerManager.playingTimestamp <= (playerManager.endTime ?? -1) {
+            return .tap
+        } else if playerManager.playingTimestamp > 0 && playerManager.playingTimestamp < playerManager.startTime {
+            return .ready
+        } else {
+            return .start
+        }
+    }
+}
+
+
+//struct TapExerciseView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TapExerciseView(tapExercise: Config.tapExercises[3], generatedBlock: Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: Config.tapExercises[3].notes), totalTime: Helper.getTotalTime(notes: Config.tapExercises[3].notes, bpm: Config.tapExercises[3].bpms[0], offsetBpm: Config.OFFSET_BPM), bpm: Config.tapExercises[3].bpms[0],
+//                        playerManager: PlayerManager(notes: Config.tapExercises[3].notes, bpm: Config.tapExercises[3].bpms[0], offsetBpm: Config.OFFSET_BPM), onNext: {})
+//    }
+//}

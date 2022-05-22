@@ -21,6 +21,5 @@ struct TapExercise {
 
 enum ExerciseCategory : String {
     case rhythm = "rhythm"
-    case pitch = "pitch"
 }
 
