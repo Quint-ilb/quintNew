@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0A1E7948283542F700BB36B9 /* Nada.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E7947283542F700BB36B9 /* Nada.swift */; };
 		0A1E794C2836A96B00BB36B9 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1E794B2836A96B00BB36B9 /* Extentions.swift */; };
 		0A3B24DE282E8E2400A82AE8 /* quintApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DD282E8E2400A82AE8 /* quintApp.swift */; };
 		0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DF282E8E2400A82AE8 /* ContentView.swift */; };
@@ -20,7 +19,6 @@
 		0A3B2503282E947C00A82AE8 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2502282E947C00A82AE8 /* Note.swift */; };
 		0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2505282EA81500A82AE8 /* PlayerManager.swift */; };
 		0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2507282EACCC00A82AE8 /* Player.swift */; };
-		0A3B250A282F7DD300A82AE8 /* sound.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B2509282F7DD300A82AE8 /* sound.m4a */; };
 		C31392B72830B52200DAF78A /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31392B62830B52200DAF78A /* LearningView.swift */; };
 		C31392B92830B56600DAF78A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31392B82830B56600DAF78A /* HomeView.swift */; };
 		C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31BC9CA2837FBB400EF1674 /* MusicalNoteView.swift */; };
@@ -29,8 +27,28 @@
 		C37D0780282FFA640056EC90 /* hihat.wav in Resources */ = {isa = PBXBuildFile; fileRef = C37D077F282FFA640056EC90 /* hihat.wav */; };
 		C3A95E532837327900EFCC4C /* TapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3A95E522837327900EFCC4C /* TapButtonView.swift */; };
 		C3CAFF58283699FD002ECBE8 /* MusicalNoteTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAFF57283699FD002ECBE8 /* MusicalNoteTable.swift */; };
-		C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */; };
 		C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */; };
+		C80846CC283AA04B00B1B9A7 /* MusicalNoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80846CA283AA04B00B1B9A7 /* MusicalNoteModel.swift */; };
+		C80846D0283AA0F300B1B9A7 /* TapIndicatorState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80846CE283AA0F300B1B9A7 /* TapIndicatorState.swift */; };
+		C80846D1283AA0F300B1B9A7 /* TapButtonState.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80846CF283AA0F300B1B9A7 /* TapButtonState.swift */; };
+		C80846D5283AA10E00B1B9A7 /* CoachmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80846D2283AA10E00B1B9A7 /* CoachmarkView.swift */; };
+		C80846D6283AA10E00B1B9A7 /* ButtonTapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80846D3283AA10E00B1B9A7 /* ButtonTapView.swift */; };
+		C80846D7283AA10E00B1B9A7 /* PitchExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80846D4283AA10E00B1B9A7 /* PitchExerciseView.swift */; };
+		C80846E7283AA13300B1B9A7 /* C#.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846D8283AA13300B1B9A7 /* C#.wav */; };
+		C80846E8283AA13300B1B9A7 /* E.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846D9283AA13300B1B9A7 /* E.wav */; };
+		C80846E9283AA13300B1B9A7 /* B.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846DA283AA13300B1B9A7 /* B.wav */; };
+		C80846EA283AA13300B1B9A7 /* A#.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846DB283AA13300B1B9A7 /* A#.wav */; };
+		C80846EB283AA13300B1B9A7 /* sound.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846DC283AA13300B1B9A7 /* sound.wav */; };
+		C80846EC283AA13300B1B9A7 /* F#.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846DD283AA13300B1B9A7 /* F#.wav */; };
+		C80846ED283AA13300B1B9A7 /* C5.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846DE283AA13300B1B9A7 /* C5.wav */; };
+		C80846EE283AA13300B1B9A7 /* C.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846DF283AA13300B1B9A7 /* C.wav */; };
+		C80846EF283AA13300B1B9A7 /* G.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846E0283AA13300B1B9A7 /* G.wav */; };
+		C80846F0283AA13300B1B9A7 /* D#.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846E1283AA13300B1B9A7 /* D#.wav */; };
+		C80846F1283AA13300B1B9A7 /* D.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846E2283AA13300B1B9A7 /* D.wav */; };
+		C80846F2283AA13300B1B9A7 /* A.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846E3283AA13300B1B9A7 /* A.wav */; };
+		C80846F3283AA13300B1B9A7 /* F.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846E4283AA13300B1B9A7 /* F.wav */; };
+		C80846F4283AA13300B1B9A7 /* G#.wav in Resources */ = {isa = PBXBuildFile; fileRef = C80846E5283AA13300B1B9A7 /* G#.wav */; };
+		C80846F5283AA13300B1B9A7 /* hihat.m4a in Resources */ = {isa = PBXBuildFile; fileRef = C80846E6283AA13300B1B9A7 /* hihat.m4a */; };
 		C849FC062839377300E96E3A /* OnBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC042839377300E96E3A /* OnBoardView.swift */; };
 		C849FC072839377300E96E3A /* OnBoardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC052839377300E96E3A /* OnBoardList.swift */; };
 		C849FC0D283937CF00E96E3A /* PopUpInfoContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC08283937CF00E96E3A /* PopUpInfoContentView.swift */; };
@@ -54,7 +72,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0A1E7947283542F700BB36B9 /* Nada.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nada.swift; sourceTree = "<group>"; };
 		0A1E794B2836A96B00BB36B9 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		0A3B24DA282E8E2400A82AE8 /* quint.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = quint.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A3B24DD282E8E2400A82AE8 /* quintApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = quintApp.swift; sourceTree = "<group>"; };
@@ -68,7 +85,6 @@
 		0A3B2502282E947C00A82AE8 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0A3B2505282EA81500A82AE8 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		0A3B2507282EACCC00A82AE8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
-		0A3B2509282F7DD300A82AE8 /* sound.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sound.m4a; sourceTree = "<group>"; };
 		C31392B62830B52200DAF78A /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		C31392B82830B56600DAF78A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C31BC9CA2837FBB400EF1674 /* MusicalNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalNoteView.swift; sourceTree = "<group>"; };
@@ -77,8 +93,28 @@
 		C37D077F282FFA640056EC90 /* hihat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hihat.wav; sourceTree = "<group>"; };
 		C3A95E522837327900EFCC4C /* TapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapButtonView.swift; sourceTree = "<group>"; };
 		C3CAFF57283699FD002ECBE8 /* MusicalNoteTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalNoteTable.swift; sourceTree = "<group>"; };
-		C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalNoteModel.swift; sourceTree = "<group>"; };
 		C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
+		C80846CA283AA04B00B1B9A7 /* MusicalNoteModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicalNoteModel.swift; sourceTree = "<group>"; };
+		C80846CE283AA0F300B1B9A7 /* TapIndicatorState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapIndicatorState.swift; sourceTree = "<group>"; };
+		C80846CF283AA0F300B1B9A7 /* TapButtonState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TapButtonState.swift; sourceTree = "<group>"; };
+		C80846D2283AA10E00B1B9A7 /* CoachmarkView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachmarkView.swift; sourceTree = "<group>"; };
+		C80846D3283AA10E00B1B9A7 /* ButtonTapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonTapView.swift; sourceTree = "<group>"; };
+		C80846D4283AA10E00B1B9A7 /* PitchExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PitchExerciseView.swift; sourceTree = "<group>"; };
+		C80846D8283AA13300B1B9A7 /* C#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "C#.wav"; sourceTree = "<group>"; };
+		C80846D9283AA13300B1B9A7 /* E.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = E.wav; sourceTree = "<group>"; };
+		C80846DA283AA13300B1B9A7 /* B.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = B.wav; sourceTree = "<group>"; };
+		C80846DB283AA13300B1B9A7 /* A#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "A#.wav"; sourceTree = "<group>"; };
+		C80846DC283AA13300B1B9A7 /* sound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound.wav; sourceTree = "<group>"; };
+		C80846DD283AA13300B1B9A7 /* F#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "F#.wav"; sourceTree = "<group>"; };
+		C80846DE283AA13300B1B9A7 /* C5.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C5.wav; sourceTree = "<group>"; };
+		C80846DF283AA13300B1B9A7 /* C.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = C.wav; sourceTree = "<group>"; };
+		C80846E0283AA13300B1B9A7 /* G.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = G.wav; sourceTree = "<group>"; };
+		C80846E1283AA13300B1B9A7 /* D#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "D#.wav"; sourceTree = "<group>"; };
+		C80846E2283AA13300B1B9A7 /* D.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = D.wav; sourceTree = "<group>"; };
+		C80846E3283AA13300B1B9A7 /* A.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = A.wav; sourceTree = "<group>"; };
+		C80846E4283AA13300B1B9A7 /* F.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = F.wav; sourceTree = "<group>"; };
+		C80846E5283AA13300B1B9A7 /* G#.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "G#.wav"; sourceTree = "<group>"; };
+		C80846E6283AA13300B1B9A7 /* hihat.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = hihat.m4a; sourceTree = "<group>"; };
 		C849FC042839377300E96E3A /* OnBoardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardView.swift; sourceTree = "<group>"; };
 		C849FC052839377300E96E3A /* OnBoardList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnBoardList.swift; sourceTree = "<group>"; };
 		C849FC08283937CF00E96E3A /* PopUpInfoContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpInfoContentView.swift; sourceTree = "<group>"; };
@@ -131,6 +167,7 @@
 		0A3B24DC282E8E2400A82AE8 /* quint */ = {
 			isa = PBXGroup;
 			children = (
+				C80846C9283AA04B00B1B9A7 /* model */,
 				C31392B32830B4D800DAF78A /* view */,
 				0A3B250B282FC73600A82AE8 /* Utils */,
 				0A3B2504282EA08B00A82AE8 /* Classes */,
@@ -154,8 +191,22 @@
 		0A3B24F1282E8E5D00A82AE8 /* sounds */ = {
 			isa = PBXGroup;
 			children = (
+				C80846E3283AA13300B1B9A7 /* A.wav */,
+				C80846DB283AA13300B1B9A7 /* A#.wav */,
+				C80846DA283AA13300B1B9A7 /* B.wav */,
+				C80846DF283AA13300B1B9A7 /* C.wav */,
+				C80846D8283AA13300B1B9A7 /* C#.wav */,
+				C80846DE283AA13300B1B9A7 /* C5.wav */,
+				C80846E2283AA13300B1B9A7 /* D.wav */,
+				C80846E1283AA13300B1B9A7 /* D#.wav */,
+				C80846D9283AA13300B1B9A7 /* E.wav */,
+				C80846E4283AA13300B1B9A7 /* F.wav */,
+				C80846DD283AA13300B1B9A7 /* F#.wav */,
+				C80846E0283AA13300B1B9A7 /* G.wav */,
+				C80846E5283AA13300B1B9A7 /* G#.wav */,
+				C80846E6283AA13300B1B9A7 /* hihat.m4a */,
+				C80846DC283AA13300B1B9A7 /* sound.wav */,
 				C37D077F282FFA640056EC90 /* hihat.wav */,
-				0A3B2509282F7DD300A82AE8 /* sound.m4a */,
 			);
 			path = sounds;
 			sourceTree = "<group>";
@@ -163,6 +214,8 @@
 		0A3B2504282EA08B00A82AE8 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C80846CF283AA0F300B1B9A7 /* TapButtonState.swift */,
+				C80846CE283AA0F300B1B9A7 /* TapIndicatorState.swift */,
 				C849FC14283937F400E96E3A /* CoachmarkManager.swift */,
 				C849FC13283937F400E96E3A /* PopUpInfo.swift */,
 				C849FC12283937F400E96E3A /* PopUpState.swift */,
@@ -172,7 +225,6 @@
 				0A3B2502282E947C00A82AE8 /* Note.swift */,
 				0A3B2505282EA81500A82AE8 /* PlayerManager.swift */,
 				0A3B2507282EACCC00A82AE8 /* Player.swift */,
-				0A1E7947283542F700BB36B9 /* Nada.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -190,11 +242,14 @@
 		C31392B32830B4D800DAF78A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C80846D3283AA10E00B1B9A7 /* ButtonTapView.swift */,
+				C80846D2283AA10E00B1B9A7 /* CoachmarkView.swift */,
+				C80846D4283AA10E00B1B9A7 /* PitchExerciseView.swift */,
 				C883CC9B283A930900D93FB0 /* SettingView.swift */,
 				C883CC97283A927F00D93FB0 /* Setting.swift */,
-				C3CAFF5928369C7D002ECBE8 /* model */,
 				C883CC87283A8BD500D93FB0 /* TabMantap.swift */,
 				CB8D5A8B283945C10096C56B /* ProgressBar.swift */,
+				C883CC91283A8D9800D93FB0 /* TabBarView.swift */,
 				CB8D5A8C283945C10096C56B /* RhythmView.swift */,
 				C849FC042839377300E96E3A /* OnBoardView.swift */,
 				C849FC052839377300E96E3A /* OnBoardList.swift */,
@@ -218,11 +273,10 @@
 			path = view;
 			sourceTree = "<group>";
 		};
-		C3CAFF5928369C7D002ECBE8 /* model */ = {
+		C80846C9283AA04B00B1B9A7 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				C883CC91283A8D9800D93FB0 /* TabBarView.swift */,
-				C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */,
+				C80846CA283AA04B00B1B9A7 /* MusicalNoteModel.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -285,10 +339,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A3B250A282F7DD300A82AE8 /* sound.m4a in Resources */,
+				C80846EE283AA13300B1B9A7 /* C.wav in Resources */,
+				C80846E8283AA13300B1B9A7 /* E.wav in Resources */,
+				C80846F2283AA13300B1B9A7 /* A.wav in Resources */,
+				C80846EB283AA13300B1B9A7 /* sound.wav in Resources */,
+				C80846E7283AA13300B1B9A7 /* C#.wav in Resources */,
+				C80846F3283AA13300B1B9A7 /* F.wav in Resources */,
+				C80846F0283AA13300B1B9A7 /* D#.wav in Resources */,
+				C80846E9283AA13300B1B9A7 /* B.wav in Resources */,
+				C80846ED283AA13300B1B9A7 /* C5.wav in Resources */,
+				C80846EC283AA13300B1B9A7 /* F#.wav in Resources */,
 				0A3B24E5282E8E2500A82AE8 /* Preview Assets.xcassets in Resources */,
 				0A3B24E2282E8E2500A82AE8 /* Assets.xcassets in Resources */,
+				C80846EA283AA13300B1B9A7 /* A#.wav in Resources */,
+				C80846F4283AA13300B1B9A7 /* G#.wav in Resources */,
+				C80846F1283AA13300B1B9A7 /* D.wav in Resources */,
+				C80846F5283AA13300B1B9A7 /* hihat.m4a in Resources */,
 				C37D0780282FFA640056EC90 /* hihat.wav in Resources */,
+				C80846EF283AA13300B1B9A7 /* G.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,10 +368,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */,
-				0A1E7948283542F700BB36B9 /* Nada.swift in Sources */,
 				0A1E794C2836A96B00BB36B9 /* Extentions.swift in Sources */,
 				C849FC11283937CF00E96E3A /* Slider.swift in Sources */,
 				CB8D5A9028395F8F0096C56B /* AchievementView.swift in Sources */,
+				C80846CC283AA04B00B1B9A7 /* MusicalNoteModel.swift in Sources */,
 				C849FC19283937F400E96E3A /* Reward.swift in Sources */,
 				C31BC9CF283808B400EF1674 /* reference.swift in Sources */,
 				C883CC9C283A930900D93FB0 /* SettingView.swift in Sources */,
@@ -316,7 +384,6 @@
 				C849FC0D283937CF00E96E3A /* PopUpInfoContentView.swift in Sources */,
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
 				C883CC88283A8BD500D93FB0 /* TabMantap.swift in Sources */,
-				C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */,
 				C883CC99283A927F00D93FB0 /* Setting.swift in Sources */,
 				C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
@@ -325,13 +392,18 @@
 				C849FC072839377300E96E3A /* OnBoardList.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */,
 				C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */,
+				C80846D7283AA10E00B1B9A7 /* PitchExerciseView.swift in Sources */,
 				C883CC8D283A8C3800D93FB0 /* TapExerciseView.swift in Sources */,
+				C80846D6283AA10E00B1B9A7 /* ButtonTapView.swift in Sources */,
 				0A3B2503282E947C00A82AE8 /* Note.swift in Sources */,
 				C849FC18283937F400E96E3A /* CoachmarkManager.swift in Sources */,
 				C883CC92283A8D9800D93FB0 /* TabBarView.swift in Sources */,
+				C80846D0283AA0F300B1B9A7 /* TapIndicatorState.swift in Sources */,
+				C80846D1283AA0F300B1B9A7 /* TapButtonState.swift in Sources */,
 				C3A95E532837327900EFCC4C /* TapButtonView.swift in Sources */,
 				C849FC16283937F400E96E3A /* PopUpState.swift in Sources */,
 				C849FC10283937CF00E96E3A /* PopupView.swift in Sources */,
+				C80846D5283AA10E00B1B9A7 /* CoachmarkView.swift in Sources */,
 				C849FC17283937F400E96E3A /* PopUpInfo.swift in Sources */,
 				C31392B72830B52200DAF78A /* LearningView.swift in Sources */,
 				C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */,
