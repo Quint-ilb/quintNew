@@ -19,13 +19,13 @@ struct SettingView: View {
                 
                 VStack{
                     DarkModeToggle()
-                    
+
                     VStack(alignment: .leading){
                         Text("Privacy")
                             .font(.title3)
                             .bold()
                             .padding(.leading, 35)
-                            .padding(.bottom, -15.0)
+                            .padding(.bottom, -20.0)
                             
                         PrivacyPolicyButton()
                     }

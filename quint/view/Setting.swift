@@ -110,6 +110,7 @@ struct AboutUsView: View {
     }
 }
 
+
 struct AboutUsButton: View {
     var body: some View {
         VStack(alignment: .leading){
@@ -132,8 +133,6 @@ struct AboutUsButton: View {
 struct PrivacyPolicyButton: View {
     var body: some View {
         ZStack{
-            Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
-                .ignoresSafeArea()
             RoundedRectangle(cornerRadius: 25)
                 .fill(.white)
                 .frame(width: 300, height: 80)
