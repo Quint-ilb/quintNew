@@ -46,6 +46,7 @@
 		C849FC19283937F400E96E3A /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC15283937F400E96E3A /* Reward.swift */; };
 		CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8B283945C10096C56B /* ProgressBar.swift */; };
 		CB8D5A8E283945C10096C56B /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8C283945C10096C56B /* RhythmView.swift */; };
+		CB8D5A9028395F8F0096C56B /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8F28395F8F0096C56B /* AchievementView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +90,7 @@
 		C849FC15283937F400E96E3A /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		CB8D5A8B283945C10096C56B /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CB8D5A8C283945C10096C56B /* RhythmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
+		CB8D5A8F28395F8F0096C56B /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +218,7 @@
 				CB8D5A8C283945C10096C56B /* RhythmView.swift */,
 				C849FC042839377300E96E3A /* OnBoardView.swift */,
 				C849FC052839377300E96E3A /* OnBoardList.swift */,
+				CB8D5A8F28395F8F0096C56B /* AchievementView.swift */,
 			);
 			path = vieww;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				0A1E7948283542F700BB36B9 /* Nada.swift in Sources */,
 				0A1E794C2836A96B00BB36B9 /* Extentions.swift in Sources */,
 				C849FC11283937CF00E96E3A /* Slider.swift in Sources */,
+				CB8D5A9028395F8F0096C56B /* AchievementView.swift in Sources */,
 				C849FC19283937F400E96E3A /* Reward.swift in Sources */,
 				C31BC9CF283808B400EF1674 /* reference.swift in Sources */,
 				C849FC062839377300E96E3A /* OnBoardView.swift in Sources */,
