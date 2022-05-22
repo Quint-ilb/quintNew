@@ -27,6 +27,7 @@
 		C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */; };
 		C3D7D2292830DB5900BFA494 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3D7D2282830DB5900BFA494 /* Slider.swift */; };
 		C832CECC2835472400FEB78C /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C832CECB2835472400FEB78C /* SettingView.swift */; };
+		C8DB2B85283A7FAF00BAEB05 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DB2B84283A7FAF00BAEB05 /* Setting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 		C3D7D2282830DB5900BFA494 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		C832CECB2835472400FEB78C /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		C8DB2B84283A7FAF00BAEB05 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Setting.swift; path = "../../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/quintNew 21.23.56/quint/view/Setting.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 				C31392B82830B56600DAF78A /* HomeView.swift */,
 				C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */,
 				C3D7D2282830DB5900BFA494 /* Slider.swift */,
+				C8DB2B84283A7FAF00BAEB05 /* Setting.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				C3D7D2272830C2DE00BFA494 /* CircularProgressView.swift in Sources */,
 				0A3B24FF282E922500A82AE8 /* Beat.swift in Sources */,
 				0A3B24DE282E8E2400A82AE8 /* quintApp.swift in Sources */,
+				C8DB2B85283A7FAF00BAEB05 /* Setting.swift in Sources */,
 				0A3B2501282E92F900A82AE8 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
