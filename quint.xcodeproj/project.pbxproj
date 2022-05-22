@@ -13,8 +13,6 @@
 		0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24DF282E8E2400A82AE8 /* ContentView.swift */; };
 		0A3B24E2282E8E2500A82AE8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B24E1282E8E2500A82AE8 /* Assets.xcassets */; };
 		0A3B24E5282E8E2500A82AE8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3B24E4282E8E2500A82AE8 /* Preview Assets.xcassets */; };
-		0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */; };
-		0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */; };
 		0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FA282E90F000A82AE8 /* Config.swift */; };
 		0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FC282E913600A82AE8 /* TapExercise.swift */; };
 		0A3B24FF282E922500A82AE8 /* Beat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B24FE282E922500A82AE8 /* Beat.swift */; };
@@ -44,6 +42,10 @@
 		C849FC17283937F400E96E3A /* PopUpInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC13283937F400E96E3A /* PopUpInfo.swift */; };
 		C849FC18283937F400E96E3A /* CoachmarkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC14283937F400E96E3A /* CoachmarkManager.swift */; };
 		C849FC19283937F400E96E3A /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = C849FC15283937F400E96E3A /* Reward.swift */; };
+		C883CC88283A8BD500D93FB0 /* TabMantap.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC87283A8BD500D93FB0 /* TabMantap.swift */; };
+		C883CC8C283A8C3800D93FB0 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC89283A8C3800D93FB0 /* ExerciseView.swift */; };
+		C883CC8D283A8C3800D93FB0 /* TapExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC8A283A8C3800D93FB0 /* TapExerciseView.swift */; };
+		C883CC92283A8D9800D93FB0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC91283A8D9800D93FB0 /* TabBarView.swift */; };
 		CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8B283945C10096C56B /* ProgressBar.swift */; };
 		CB8D5A8E283945C10096C56B /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8C283945C10096C56B /* RhythmView.swift */; };
 		CB8D5A9028395F8F0096C56B /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8F28395F8F0096C56B /* AchievementView.swift */; };
@@ -57,8 +59,6 @@
 		0A3B24DF282E8E2400A82AE8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0A3B24E1282E8E2500A82AE8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0A3B24E4282E8E2500A82AE8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
-		0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapExerciseView.swift; sourceTree = "<group>"; };
 		0A3B24FA282E90F000A82AE8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0A3B24FC282E913600A82AE8 /* TapExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapExercise.swift; sourceTree = "<group>"; };
 		0A3B24FE282E922500A82AE8 /* Beat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beat.swift; sourceTree = "<group>"; };
@@ -88,6 +88,10 @@
 		C849FC13283937F400E96E3A /* PopUpInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpInfo.swift; sourceTree = "<group>"; };
 		C849FC14283937F400E96E3A /* CoachmarkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoachmarkManager.swift; sourceTree = "<group>"; };
 		C849FC15283937F400E96E3A /* Reward.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		C883CC87283A8BD500D93FB0 /* TabMantap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabMantap.swift; sourceTree = "<group>"; };
+		C883CC89283A8C3800D93FB0 /* ExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseView.swift; path = quint/view/ExerciseView.swift; sourceTree = SOURCE_ROOT; };
+		C883CC8A283A8C3800D93FB0 /* TapExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapExerciseView.swift; path = quint/view/TapExerciseView.swift; sourceTree = SOURCE_ROOT; };
+		C883CC91283A8D9800D93FB0 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarView.swift; path = quint/view/TabBarView.swift; sourceTree = SOURCE_ROOT; };
 		CB8D5A8B283945C10096C56B /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CB8D5A8C283945C10096C56B /* RhythmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
 		CB8D5A8F28395F8F0096C56B /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -123,7 +127,6 @@
 		0A3B24DC282E8E2400A82AE8 /* quint */ = {
 			isa = PBXGroup;
 			children = (
-				C849FC032839377300E96E3A /* vieww */,
 				C31392B32830B4D800DAF78A /* view */,
 				0A3B250B282FC73600A82AE8 /* Utils */,
 				0A3B2504282EA08B00A82AE8 /* Classes */,
@@ -132,8 +135,6 @@
 				0A3B24E1282E8E2500A82AE8 /* Assets.xcassets */,
 				0A3B24F1282E8E5D00A82AE8 /* sounds */,
 				0A3B24E3282E8E2500A82AE8 /* Preview Content */,
-				0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */,
-				0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */,
 			);
 			path = quint;
 			sourceTree = "<group>";
@@ -185,6 +186,14 @@
 		C31392B32830B4D800DAF78A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C883CC87283A8BD500D93FB0 /* TabMantap.swift */,
+				CB8D5A8B283945C10096C56B /* ProgressBar.swift */,
+				CB8D5A8C283945C10096C56B /* RhythmView.swift */,
+				C849FC042839377300E96E3A /* OnBoardView.swift */,
+				C849FC052839377300E96E3A /* OnBoardList.swift */,
+				CB8D5A8F28395F8F0096C56B /* AchievementView.swift */,
+				C883CC89283A8C3800D93FB0 /* ExerciseView.swift */,
+				C883CC8A283A8C3800D93FB0 /* TapExerciseView.swift */,
 				C3CAFF5928369C7D002ECBE8 /* model */,
 				C849FC09283937CF00E96E3A /* LevelView.swift */,
 				C849FC0A283937CF00E96E3A /* PopUpChallengeContentView.swift */,
@@ -206,21 +215,10 @@
 		C3CAFF5928369C7D002ECBE8 /* model */ = {
 			isa = PBXGroup;
 			children = (
+				C883CC91283A8D9800D93FB0 /* TabBarView.swift */,
 				C3CAFF5A28369C93002ECBE8 /* MusicalNoteModel.swift */,
 			);
 			path = model;
-			sourceTree = "<group>";
-		};
-		C849FC032839377300E96E3A /* vieww */ = {
-			isa = PBXGroup;
-			children = (
-				CB8D5A8B283945C10096C56B /* ProgressBar.swift */,
-				CB8D5A8C283945C10096C56B /* RhythmView.swift */,
-				C849FC042839377300E96E3A /* OnBoardView.swift */,
-				C849FC052839377300E96E3A /* OnBoardList.swift */,
-				CB8D5A8F28395F8F0096C56B /* AchievementView.swift */,
-			);
-			path = vieww;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,10 +305,10 @@
 				0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */,
 				C31392B92830B56600DAF78A /* HomeView.swift in Sources */,
 				C31BC9CD2838009300EF1674 /* LockCircleView.swift in Sources */,
-				0A3B24F9282E907400A82AE8 /* TapExerciseView.swift in Sources */,
-				0A3B24F7282E902B00A82AE8 /* ExerciseView.swift in Sources */,
+				C883CC8C283A8C3800D93FB0 /* ExerciseView.swift in Sources */,
 				C849FC0D283937CF00E96E3A /* PopUpInfoContentView.swift in Sources */,
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
+				C883CC88283A8BD500D93FB0 /* TabMantap.swift in Sources */,
 				C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */,
 				C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
@@ -319,8 +317,10 @@
 				C849FC072839377300E96E3A /* OnBoardList.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */,
 				C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */,
+				C883CC8D283A8C3800D93FB0 /* TapExerciseView.swift in Sources */,
 				0A3B2503282E947C00A82AE8 /* Note.swift in Sources */,
 				C849FC18283937F400E96E3A /* CoachmarkManager.swift in Sources */,
+				C883CC92283A8D9800D93FB0 /* TabBarView.swift in Sources */,
 				C3A95E532837327900EFCC4C /* TapButtonView.swift in Sources */,
 				C849FC16283937F400E96E3A /* PopUpState.swift in Sources */,
 				C849FC10283937CF00E96E3A /* PopupView.swift in Sources */,

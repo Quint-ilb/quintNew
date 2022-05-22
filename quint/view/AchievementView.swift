@@ -30,7 +30,7 @@ struct AchievementView: View {
                                 .frame(width: 300, height: 24, alignment: .leading)
                             
                             HStack{
-                                Image(finishedlevel < 2 ? "medalRectBlue" : "medalEmptyTri")
+                                Image(finishedlevel > 0 ? "medalRectBlue" : "medalEmptyTri")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 47, height: 90, alignment: .center)
@@ -39,21 +39,21 @@ struct AchievementView: View {
                                     
                                     
                                 //lanjut aj ya // tq
-                                Image(finishedlevel < 3 ? "medalRectPurple" : "medalEmptyTri")
+                                Image(finishedlevel > 1 ? "medalRectPurple" : "medalEmptyTri")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 47, height: 90, alignment: .center)
                                     .clipped()
                                     .padding(.horizontal, 10)
                                     
-                                Image(finishedlevel < 4 ? "medalTriBlue" : "medalEmptyTri")
+                                Image(finishedlevel > 2 ? "medalTriBlue" : "medalEmptyTri")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 47, height: 90, alignment: .center)
                                     .clipped()
                                     .padding(.horizontal, 10)
                                     
-                                Image(finishedlevel < 5 ? "medalTriRed" : "medalEmptyTri")
+                                Image(finishedlevel > 3 ? "medalTriRed" : "medalEmptyTri")
                                     .resizable()
                                     .scaledToFill()
                                     .frame(width: 47, height: 90, alignment: .center)
@@ -61,7 +61,7 @@ struct AchievementView: View {
                                     .padding(.horizontal, 10)
                                     
                             } .padding()
-                            Image(finishedlevel < 5 ? "trophy" : "trophyEmpty")
+                            Image(finishedlevel > 3 ? "trophy" : "trophyEmpty")
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 79, height: 107, alignment: .center)

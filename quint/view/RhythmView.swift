@@ -140,7 +140,9 @@ struct RhythmView: View {
                         
                        
                       
-                    }.padding()
+                    }
+                    .padding()
+                    .offset(y:-40)
                     
                    
                    

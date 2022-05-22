@@ -18,7 +18,7 @@ struct ContentView: View {
         if (isShowOnboarding) {
             OnBoardView()
         }else {
-            HomeView()
+            TabMantap()
 //            ExerciseView()
         }
     }

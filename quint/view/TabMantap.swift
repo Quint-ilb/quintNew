@@ -22,7 +22,7 @@ struct TabMantap: View {
                     Text("Achievement")
                 }
             
-//            TapButtonView()
+//            SettingView()
 //                .tabItem{
 //                    Image(systemName: "gearshape.fill")
 //                    Text("Settings")
