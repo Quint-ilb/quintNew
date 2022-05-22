@@ -9,9 +9,9 @@ import SwiftUI
 
 struct TapButtonView: View {
     
-//    @Binding var isPressed: Bool
-//    @Binding var buttonLabel: TapButtonState
-    var buttonState: TapButtonState
+    //    @Binding var isPressed: Bool
+    //    @Binding var buttonLabel: TapButtonState
+    var buttonLabel: String
     @State var radius: CGFloat
     
     var body: some View {
@@ -20,9 +20,9 @@ struct TapButtonView: View {
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.771204412, green: 0.8212063313, blue: 0.8846092224, alpha: 1)), Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1))]), startPoint: .top, endPoint: .bottom))
                 .frame(width: radius*2*1.4, height: radius*2*1.4, alignment: .center)
             
-//            Circle()
-//                .stroke(lineWidth: 0.1)
-//                .frame(width: 198.96, height: 198.96, alignment: .center)
+            //            Circle()
+            //                .stroke(lineWidth: 0.1)
+            //                .frame(width: 198.96, height: 198.96, alignment: .center)
             
             Circle()
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), Color(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)), Color(#colorLiteral(red: 0.7532736063, green: 0.77320081, blue: 0.8029195666, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
@@ -33,7 +33,7 @@ struct TapButtonView: View {
                 .fill(LinearGradient(gradient: Gradient(colors: [Color(#colorLiteral(red: 0.8679115176, green: 0.8828440309, blue: 0.904078424, alpha: 1)), Color(#colorLiteral(red: 0.9795069098, green: 0.9844784141, blue: 0.9886956811, alpha: 1)), Color(#colorLiteral(red: 0.9795069098, green: 0.9844784141, blue: 0.9886956811, alpha: 1))]), startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(width: radius*2, height: radius*2, alignment: .center)
             
-            Text(buttonState.rawValue)
+            Text(buttonLabel)
                 .font(Font.system(size: (36/153.19)*(radius*2), weight: .semibold))
                 .multilineTextAlignment(.center)
                 .overlay {
@@ -42,10 +42,10 @@ struct TapButtonView: View {
                         startPoint: .leading,
                         endPoint: .trailing
                     )
-                    .mask(Text(buttonState.rawValue)
+                    .mask(Text(buttonLabel)
                         .font(Font.system(size: (36/153.19)*(radius*2), weight: .semibold))
                         .multilineTextAlignment(.center))
-            }
+                }
         }
     }
 }

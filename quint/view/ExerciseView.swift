@@ -16,6 +16,7 @@ struct ExerciseView: View {
     
     var body: some View {
         let generatedBlock = Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes)
+        if(exercise.category == .rhythm) {
             TapExerciseView(
                 tapExercise: exercise,
                             
@@ -32,6 +33,25 @@ struct ExerciseView: View {
                             onNext: onPressNext,
                             x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
             )
+        } else if (exercise.category == .pitch) {
+            PitchExerciseView(
+                tapExercise: exercise,
+                            
+                            generatedBlock: generatedBlock,
+                            
+                            totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                            
+                            bpm: exercise.bpms[bpmIndex],
+                            
+                            bpmIndex : $bpmIndex,
+                            
+                            playerManager: PlayerManager(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                            
+                            onNext: onPressNext,
+                            x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
+            )
+        }
+            
             
             
         

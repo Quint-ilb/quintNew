@@ -37,9 +37,11 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     var startIndex : Int = 0
     var metronomeStartIndex: Int = 0
     var displayLink : CADisplayLink!
+    var notesToPlay : [Note]!
     
     init(notes: [Note], bpm: Int, offsetBpm: Int = Config.OFFSET_BPM){
         print("bpm", bpm)
+        self.notesToPlay = notes
         self.noteInterval = Helper.convertBeatToTimeInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
         print("note interval", noteInterval as Any)
         self.metronomeInterval = Helper.getMetronomeBeatInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
@@ -73,8 +75,8 @@ class PlayerManager: ObservableObject, PlayerDelegate {
         return Player(fileName: "hihat", ext: "wav", playerType: playerType)
     }
     
-    private func getStartPlayer(playerType: PlayerType) -> Player {
-        return Player(fileName: "sound", ext: "m4a", playerType: playerType)
+    private func getStartPlayer(playerType: PlayerType, sound: Sound) -> Player {
+        return Player(fileName: sound.rawValue, ext: "wav", playerType: playerType)
     }
     
     private func setMetronomePlayers(metronomeInterval: [TimeInterval]) {
@@ -97,11 +99,14 @@ class PlayerManager: ObservableObject, PlayerDelegate {
                     players.append(player)
                 }
             }else{
-                var player = getStartPlayer(playerType: .note)
+                var player = getStartPlayer(playerType: .note, sound: notesToPlay[index-1].sound)
                 player.setBeat(beat: noteInv)
                 if(notes[index-1].isRest) {
                     player.setVolume(vol: 0)
+                }else {
+                    player.setVolume(vol: 3)
                 }
+//                player.setRate(rate:0.649/Float(noteInv))
                 player.delegate = self
                 players.append(player)
             }
