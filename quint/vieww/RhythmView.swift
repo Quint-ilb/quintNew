@@ -13,6 +13,8 @@ struct RhythmView: View {
     
     var color1 = Color(red: 94/255, green: 194/255, blue: 225/255)
     var color2 = Color(red: 202/255, green: 86/252, blue: 242/255)
+    
+    @Environment(\.dismiss) var dismiss
   
     var body: some View {
         NavigationView{
@@ -123,8 +125,7 @@ struct RhythmView: View {
                         }
                         else {
                             Button(action: {
-                                
-                                
+                                dismiss()
                             }) {
                                 Text("Finish")
                                     .font(.system(size: 20))
@@ -145,10 +146,10 @@ struct RhythmView: View {
                    
                 }
             }
-            .navigationBarTitle("Rhythm Introduction", displayMode: .inline)
+            
            
             
-        }
+        }.navigationBarTitle("Rhythm Introduction", displayMode: .inline)
         
         
     }

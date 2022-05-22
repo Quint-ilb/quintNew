@@ -108,11 +108,9 @@ struct TapExerciseView: View {
             }
             
             if isShowPopUpInfo {
-                PopUpInfoContentView(data: tapExercise.info, onTapClose: {
+                PopUpInfoContentView(data: tapExercise.info).myCustomPopUp(onTapoutside: {
                     isShowPopUpInfo.toggle()
-                }).myCustomPopUp(onTapoutside: {
-                    isShowPopUpInfo.toggle()
-                })
+                }, withCloseBtn: true)
             }
             
             
@@ -244,7 +242,7 @@ struct NotesView: View {
             let isShowMetronomeCm = coachmarkManager.coachmarkIndex == 1
             let isShowIndicatorColorGreenCm = coachmarkManager.coachmarkIndex == 3
             let isShowIndicatorColorRedCm = coachmarkManager.coachmarkIndex == 2
-            let shadowColor : Color = isShowIndicatorCm ? .white : isShowIndicatorColorGreenCm ? .green : isShowIndicatorColorRedCm ? .red : .clear
+            let shadowColor : Color = isShowIndicatorCm || isShowIndicatorColorGreenCm || isShowIndicatorColorRedCm ? .white : .clear
             let foregroundColor: Color = isShowIndicatorCm ? .blue : isShowIndicatorColorGreenCm ? .green : isShowIndicatorColorRedCm ? .red : tapIndicatorState == .right ? .green : tapIndicatorState == .wrong ? .red : .blue
             Rectangle()
                 .frame(width: blockWidth, height: 50, alignment: .center)
@@ -396,12 +394,17 @@ struct TapExerciseCoachmark: View {
                             .offset(x: 0, y: 10)
                         VStack(spacing: 0){
                             Text("\(coachmark.description)")
+                                .font(.system(size: 12))
                         }
                         .padding(.vertical, 12)
                         .padding(.horizontal, 32)
                         .frame(width: 321)
                         .background(.white)
                         .cornerRadius(24)
+                        Text("Tap anywhere to next")
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundColor(.white)
+                            .padding(.vertical, 14)
                     }.background(
                         GeometryReader { proxy in
                             Color.clear
