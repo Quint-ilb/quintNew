@@ -74,7 +74,9 @@ struct TapExerciseView: View {
                           coachmarkManager: coachmarkManager,
                           onTap: onTapButton,
                           tapIndicatorState: $tapIndicatorState
-                )
+                ).onDisappear{
+                    playerManager.enabled = false
+                }
                 
                 Spacer()
                 
@@ -85,11 +87,20 @@ struct TapExerciseView: View {
 //                    Text("endTime \(playerManager.endTime ?? 0)")
 //                    Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
 //                }
+//                HStack{
+//                    
+//                    ForEach(tapTimestampBool, id: \.self) { res in
+//                        Circle()
+//                            .frame(width: 5, height: 5)
+//                            .foregroundColor(res == true ? .green : .red)
+//                        
+//                    }
+//                }
             }.padding(.top, 150)
             
             
             if !playerManager.isPlaying && playerManager.startTime > 0 {
-                var popUpState = getPopupState(isSuccess: getIsSuccess(), bpmIndex: bpmIndex)
+                let popUpState = getPopupState(isSuccess: getIsSuccess(), bpmIndex: bpmIndex)
                 PopUpChallengeContentView(data: popUpState).myCustomPopUp(onTapoutside: {
                     playerManager.cleanToRestart()
                 })
@@ -155,13 +166,13 @@ struct TapExerciseView: View {
     
     func goToNextLevel() {
         onNext()
-        if bpmIndex < 2 {
+        if bpmIndex <= 2 {
             playerManager.reInit(notes: tapExercise.notes, bpm: tapExercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM)
         }
     }
     
     func getIsSuccess() -> Bool {
-        let totalOk = tapExercise.notes.filter { $0.isRest == true }.count
+        let totalOk = tapExercise.notes.filter { $0.isRest != true }.count
         let totalTapOk = tapTimestampBool.filter { $0 == true }.count
         if(totalOk == totalTapOk && tapTimestampBool.count == totalOk ) {
             return true
@@ -284,7 +295,7 @@ struct NotesView: View {
                         }
                         .frame(width: blockWidth, height: 50)
                         .padding(0)
-                        //                        .border(.red)
+                                                .border(.red)
                     }
                 }.offset(x: x, y: 0)
                 
@@ -315,17 +326,29 @@ struct NotesView: View {
         
         ButtonTap(playerManager: playerManager, onTap: { buttonState, tapTimestamp in
             if buttonState == .start || buttonState == .restart {
+               
                 if(x < 0) {
                     x *= -1
                 }
                 withAnimation(.linear(duration: totalTime).delay(0.8) ){
                     x = -1 * x
                 }
+                
                 onStart()
             } else if buttonState == .tap {
                 onTap(tapTimestamp)
             }
         })
+        
+//        if (playerManager.isPlaying && playerManager.startTime != -1 ){
+//            DispatchQueue.main.asyncAfter(deadline: playerManager.startTime){
+//                withAnimation(.linear(duration: totalTime)){
+//                                    x = -1 * x
+//                                }
+//            }
+            
+//        }
+        
     }
     
     
