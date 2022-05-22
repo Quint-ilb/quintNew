@@ -71,6 +71,7 @@ struct TapExerciseView: View {
                           totalTime: totalTime,
                           onStart: onStart,
                           x: $x,
+                          totalX: x*2,
                           coachmarkManager: coachmarkManager,
                           onTap: onTapButton,
                           tapIndicatorState: $tapIndicatorState
@@ -150,7 +151,10 @@ struct TapExerciseView: View {
         }else {
             if isSuccess {
                 return .successReward(reward: tapExercise.reward!, onPressPrimary: {
-                    UserDefaults.standard.set(tapExercise.reward?.level, forKey: "exercise-\(tapExercise.category.rawValue)")
+                    let currentlevel = UserDefaults.standard.integer(forKey: "exercise-\(tapExercise.category.rawValue)") ?? 0
+                    if currentlevel < tapExercise.reward!.level {
+                        UserDefaults.standard.set(tapExercise.reward?.level, forKey: "exercise-\(tapExercise.category.rawValue)")
+                    }
                     presentation.wrappedValue.dismiss()
                 }, onPressSecondary: {})
             } else {
@@ -216,6 +220,7 @@ struct NotesView: View {
     var totalTime: TimeInterval
     var onStart: () -> ()
     @Binding var x: CGFloat
+    @State var totalX: CGFloat
     @ObservedObject var coachmarkManager: CoachmarkManager
     
     var onTap: (_ tapTime: TimeInterval) -> ()
@@ -295,9 +300,9 @@ struct NotesView: View {
                         }
                         .frame(width: blockWidth, height: 50)
                         .padding(0)
-                                                .border(.red)
+//                                                .border(.red)
                     }
-                }.offset(x: x, y: 0)
+                }.offset(x: countX(), y: 0)
                 
             }.zIndex(isShowMetronomeCm || isShowIndicatorCm ? 1 : 0)
             
@@ -326,29 +331,18 @@ struct NotesView: View {
         
         ButtonTap(playerManager: playerManager, onTap: { buttonState, tapTimestamp in
             if buttonState == .start || buttonState == .restart {
-               
-                if(x < 0) {
-                    x *= -1
-                }
-                withAnimation(.linear(duration: totalTime).delay(0.8) ){
-                    x = -1 * x
-                }
-                
                 onStart()
             } else if buttonState == .tap {
                 onTap(tapTimestamp)
             }
         })
         
-//        if (playerManager.isPlaying && playerManager.startTime != -1 ){
-//            DispatchQueue.main.asyncAfter(deadline: playerManager.startTime){
-//                withAnimation(.linear(duration: totalTime)){
-//                                    x = -1 * x
-//                                }
-//            }
-            
-//        }
-        
+    }
+    
+    func countX() -> CGFloat {
+        let percentage = (playerManager.playingTimestamp - playerManager.startTime)/(totalTime)
+        let _x = x - (totalX * (percentage <= 1 ? percentage : 1))
+        return _x
     }
     
     

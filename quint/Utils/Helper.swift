@@ -79,7 +79,7 @@ class Helper {
                 isTrue.toggle()
             }
         }
-        print("generated box count", arr2.count)
+//        print("generated box count", arr2.count)
         return arr2
     }
     
@@ -90,8 +90,8 @@ class Helper {
             res += note.beat.rawValue
         }
         res += Double(offsetBpm)
-        print("debug total time", res * interval, res, bpm, offsetBpm, interval)
-        return res * interval + interval
+//        print("debug total time", res * interval, res, bpm, offsetBpm, interval)
+        return res * interval
     }
     
     static func getXInitialOffset(generatedBlock: [[Int]]) -> CGFloat {
