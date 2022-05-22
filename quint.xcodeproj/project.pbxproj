@@ -46,6 +46,8 @@
 		C883CC8C283A8C3800D93FB0 /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC89283A8C3800D93FB0 /* ExerciseView.swift */; };
 		C883CC8D283A8C3800D93FB0 /* TapExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC8A283A8C3800D93FB0 /* TapExerciseView.swift */; };
 		C883CC92283A8D9800D93FB0 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC91283A8D9800D93FB0 /* TabBarView.swift */; };
+		C883CC99283A927F00D93FB0 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC97283A927F00D93FB0 /* Setting.swift */; };
+		C883CC9C283A930900D93FB0 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C883CC9B283A930900D93FB0 /* SettingView.swift */; };
 		CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8B283945C10096C56B /* ProgressBar.swift */; };
 		CB8D5A8E283945C10096C56B /* RhythmView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8C283945C10096C56B /* RhythmView.swift */; };
 		CB8D5A9028395F8F0096C56B /* AchievementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB8D5A8F28395F8F0096C56B /* AchievementView.swift */; };
@@ -92,6 +94,8 @@
 		C883CC89283A8C3800D93FB0 /* ExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExerciseView.swift; path = quint/view/ExerciseView.swift; sourceTree = SOURCE_ROOT; };
 		C883CC8A283A8C3800D93FB0 /* TapExerciseView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TapExerciseView.swift; path = quint/view/TapExerciseView.swift; sourceTree = SOURCE_ROOT; };
 		C883CC91283A8D9800D93FB0 /* TabBarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TabBarView.swift; path = quint/view/TabBarView.swift; sourceTree = SOURCE_ROOT; };
+		C883CC97283A927F00D93FB0 /* Setting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		C883CC9B283A930900D93FB0 /* SettingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		CB8D5A8B283945C10096C56B /* ProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
 		CB8D5A8C283945C10096C56B /* RhythmView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RhythmView.swift; sourceTree = "<group>"; };
 		CB8D5A8F28395F8F0096C56B /* AchievementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementView.swift; sourceTree = "<group>"; };
@@ -186,6 +190,9 @@
 		C31392B32830B4D800DAF78A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C883CC9B283A930900D93FB0 /* SettingView.swift */,
+				C883CC97283A927F00D93FB0 /* Setting.swift */,
+				C3CAFF5928369C7D002ECBE8 /* model */,
 				C883CC87283A8BD500D93FB0 /* TabMantap.swift */,
 				CB8D5A8B283945C10096C56B /* ProgressBar.swift */,
 				CB8D5A8C283945C10096C56B /* RhythmView.swift */,
@@ -194,7 +201,6 @@
 				CB8D5A8F28395F8F0096C56B /* AchievementView.swift */,
 				C883CC89283A8C3800D93FB0 /* ExerciseView.swift */,
 				C883CC8A283A8C3800D93FB0 /* TapExerciseView.swift */,
-				C3CAFF5928369C7D002ECBE8 /* model */,
 				C849FC09283937CF00E96E3A /* LevelView.swift */,
 				C849FC0A283937CF00E96E3A /* PopUpChallengeContentView.swift */,
 				C849FC08283937CF00E96E3A /* PopUpInfoContentView.swift */,
@@ -300,6 +306,7 @@
 				CB8D5A9028395F8F0096C56B /* AchievementView.swift in Sources */,
 				C849FC19283937F400E96E3A /* Reward.swift in Sources */,
 				C31BC9CF283808B400EF1674 /* reference.swift in Sources */,
+				C883CC9C283A930900D93FB0 /* SettingView.swift in Sources */,
 				C849FC062839377300E96E3A /* OnBoardView.swift in Sources */,
 				C849FC0E283937CF00E96E3A /* LevelView.swift in Sources */,
 				0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */,
@@ -310,6 +317,7 @@
 				0A3B24E0282E8E2400A82AE8 /* ContentView.swift in Sources */,
 				C883CC88283A8BD500D93FB0 /* TabMantap.swift in Sources */,
 				C3CAFF5B28369C93002ECBE8 /* MusicalNoteModel.swift in Sources */,
+				C883CC99283A927F00D93FB0 /* Setting.swift in Sources */,
 				C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
 				CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */,

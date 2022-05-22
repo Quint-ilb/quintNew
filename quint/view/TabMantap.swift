@@ -22,11 +22,11 @@ struct TabMantap: View {
                     Text("Achievement")
                 }
             
-//            SettingView()
-//                .tabItem{
-//                    Image(systemName: "gearshape.fill")
-//                    Text("Settings")
-//                }
+            SettingView()
+                .tabItem{
+                    Image(systemName: "gearshape.fill")
+                    Text("Settings")
+                }
         }
         .accentColor(Color(#colorLiteral(red: 0.3679022491, green: 0.761993885, blue: 0.884503603, alpha: 1)))
     }
