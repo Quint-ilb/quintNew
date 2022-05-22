@@ -9,9 +9,11 @@ import SwiftUI
 
 struct PopupViewModifier: ViewModifier {
     var onTapoutside: () -> Void
+    var withCloseBtn: Bool
     @State var popUpHeight : CGFloat = 0
     @State var isShow: Bool = true
     @State var y: CGFloat = 0
+    
     
     func body(content: Content) -> some View {
         ZStack{
@@ -24,14 +26,26 @@ struct PopupViewModifier: ViewModifier {
                     
                     withAnimation(.linear(duration: 0.2) ){
                         y = popUpHeight
-                        
                     }
                 }
-            
             
             VStack{
                 Spacer()
                 VStack{
+                    if(withCloseBtn) {
+                        HStack{
+                            Spacer()
+                            Button(action: {
+                                onTap()
+                                withAnimation(.linear(duration: 0.2) ){
+                                    y = popUpHeight
+                                }
+                            }, label: {
+                                Image("closeRoundGray")
+                            })
+                            
+                        }.padding(20)
+                    }
                     content
                 }.frame(width: UIScreen.main.bounds.width, height: 502, alignment: .center)
                     

@@ -11,20 +11,10 @@ struct PopUpInfoContentView: View {
     var data : [PopUpInfo]
     @State var popUpInfoIndex: Int = 0
     
-    var onTapClose : () -> ()
-    
     var body: some View {
 
         VStack {
-            HStack{
-                Spacer()
-                Button(action: {
-                    onTapClose()
-                }, label: {
-                    Image("closeRoundGray")
-                })
-                
-            }
+            
             ScrollView{
                 
                 VStack {
@@ -58,12 +48,13 @@ struct PopUpInfoContentView: View {
                     Image("nextInfo")
                 }).disabled(popUpInfoIndex == 1)
             }
-        }.padding(24)
+        }.padding(.horizontal, 24)
+            .padding(.bottom, 24)
     }
 }
 
 struct PopUpInfoContentView_Previews: PreviewProvider {
     static var previews: some View {
-        PopUpInfoContentView(data: Config.tapExercises[0].info, onTapClose: {})
+        PopUpInfoContentView(data: Config.tapExercises[0].info)
     }
 }
