@@ -132,6 +132,8 @@ struct AboutUsButton: View {
 struct PrivacyPolicyButton: View {
     var body: some View {
         ZStack{
+            Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
+                .ignoresSafeArea()
             RoundedRectangle(cornerRadius: 25)
                 .fill(.white)
                 .frame(width: 300, height: 80)
@@ -187,56 +189,60 @@ struct DarkModeToggle: View {
 
 struct PrivacyPolicyView: View {
     var body: some View {
-        ScrollView{
-            VStack{
-                Text("Last updated: *bind here*")
-                    .font(.subheadline)
-                VStack(alignment: .leading){
-                    Text("Overview")
-                        .bold()
-                        .padding(.bottom, -5)
-                    Text("""
-Note Trainer app does not collect any personal data. All counters’ information that you input into the Note Trainer app remains privately stored on your device.
+        ZStack{
+            Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
+                .ignoresSafeArea()
+            ScrollView{
+                VStack{
+                    Text("Last updated: *bind here*")
+                        .font(.subheadline)
+                    VStack(alignment: .leading){
+                        Text("Overview")
+                            .bold()
+                            .padding(.bottom, -5)
+                        Text("""
+    Note Trainer app does not collect any personal data. All counters’ information that you input into the Note Trainer app remains privately stored on your device.
 
-We take your privacy very seriously. Note Trainer app always want make better development decisions and choose where to focus development effort. Note Trainer app does not share, sell or rent your data, and the anonymous information is only collected to help make the app better.
-""")
-                 .padding(.bottom)
+    We take your privacy very seriously. Note Trainer app always want make better development decisions and choose where to focus development effort. Note Trainer app does not share, sell or rent your data, and the anonymous information is only collected to help make the app better.
+    """)
+                     .padding(.bottom)
+                        
+                        Text("Your Consent")
+                            .bold()
+                            .padding(.bottom, -5)
+                        Text("""
+    By using Note Trainer app, you consent to this privacy policy. Changes to this Privacy Policy We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page. Contact Us If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
+    """)
+                     .padding(.bottom)
                     
-                    Text("Your Consent")
-                        .bold()
-                        .padding(.bottom, -5)
-                    Text("""
-By using Note Trainer app, you consent to this privacy policy. Changes to this Privacy Policy We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page. Contact Us If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
-""")
-                 .padding(.bottom)
-                
-                    Text("Your Consent")
-                        .bold()
-                        .padding(.bottom, -5)
-                    Text("""
-By using Note Trainer app, you consent to this privacy policy.
-""")
-                 .padding(.bottom)
-                    
-                    Text("Changes to this Privacy Policy")
-                        .bold()
-                        .padding(.bottom, -5)
-                    Text("""
-We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page. Contact Us If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
-""")
-                 .padding(.bottom)
-                    
-                    Text("Contact Us")
-                        .bold()
-                        .padding(.bottom, -5)
-                    Text("""
-If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com
+                        Text("Your Consent")
+                            .bold()
+                            .padding(.bottom, -5)
+                        Text("""
+    By using Note Trainer app, you consent to this privacy policy.
+    """)
+                     .padding(.bottom)
+                        
+                        Text("Changes to this Privacy Policy")
+                            .bold()
+                            .padding(.bottom, -5)
+                        Text("""
+    We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. These changes are effective immediately after they are posted on this page. Contact Us If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
+    """)
+                     .padding(.bottom)
+                        
+                        Text("Contact Us")
+                            .bold()
+                            .padding(.bottom, -5)
+                        Text("""
+    If you have any questions or suggestions, you can contact us at contact [at] notetrainer [dot] com
 
-If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
-""")
-                 .padding(.bottom)
+    If you contact us through this email, we will see your name and email address. Your information is only to assist us in providing customer support to you and won’t be added to a mailing list or sold to a third-party company. If you wish, you may email us to remove your name and email address from our inbox.
+    """)
+                     .padding(.bottom)
+                    }
+                    .padding([.trailing, .leading], 20)
                 }
-                .padding([.trailing, .leading], 20)
             }
         }
     }
