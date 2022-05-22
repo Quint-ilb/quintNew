@@ -95,7 +95,6 @@
 				0A3B24E3282E8E2500A82AE8 /* Preview Content */,
 				0A3B24F6282E902B00A82AE8 /* ExerciseView.swift */,
 				0A3B24F8282E907400A82AE8 /* TapExerciseView.swift */,
-				C832CECB2835472400FEB78C /* SettingView.swift */,
 			);
 			path = quint;
 			sourceTree = "<group>";
@@ -146,6 +145,7 @@
 				C3D7D2262830C2DE00BFA494 /* CircularProgressView.swift */,
 				C3D7D2282830DB5900BFA494 /* Slider.swift */,
 				C8DB2B84283A7FAF00BAEB05 /* Setting.swift */,
+				C832CECB2835472400FEB78C /* SettingView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
