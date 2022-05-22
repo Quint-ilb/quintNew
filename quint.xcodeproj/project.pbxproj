@@ -21,6 +21,7 @@
 		0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2507282EACCC00A82AE8 /* Player.swift */; };
 		C31392B72830B52200DAF78A /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31392B62830B52200DAF78A /* LearningView.swift */; };
 		C31392B92830B56600DAF78A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31392B82830B56600DAF78A /* HomeView.swift */; };
+		C316E10F283AA9200098998B /* TabBarFixedNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316E10E283AA9200098998B /* TabBarFixedNew.swift */; };
 		C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31BC9CA2837FBB400EF1674 /* MusicalNoteView.swift */; };
 		C31BC9CD2838009300EF1674 /* LockCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31BC9CC2838009300EF1674 /* LockCircleView.swift */; };
 		C31BC9CF283808B400EF1674 /* reference.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31BC9CE283808B400EF1674 /* reference.swift */; };
@@ -87,6 +88,7 @@
 		0A3B2507282EACCC00A82AE8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		C31392B62830B52200DAF78A /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		C31392B82830B56600DAF78A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C316E10E283AA9200098998B /* TabBarFixedNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarFixedNew.swift; sourceTree = "<group>"; };
 		C31BC9CA2837FBB400EF1674 /* MusicalNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicalNoteView.swift; sourceTree = "<group>"; };
 		C31BC9CC2838009300EF1674 /* LockCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockCircleView.swift; sourceTree = "<group>"; };
 		C31BC9CE283808B400EF1674 /* reference.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reference.swift; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 		C31392B32830B4D800DAF78A /* view */ = {
 			isa = PBXGroup;
 			children = (
+				C316E10E283AA9200098998B /* TabBarFixedNew.swift */,
 				C80846D3283AA10E00B1B9A7 /* ButtonTapView.swift */,
 				C80846D2283AA10E00B1B9A7 /* CoachmarkView.swift */,
 				C80846D4283AA10E00B1B9A7 /* PitchExerciseView.swift */,
@@ -392,6 +395,7 @@
 				C849FC072839377300E96E3A /* OnBoardList.swift in Sources */,
 				0A3B24FB282E90F000A82AE8 /* Config.swift in Sources */,
 				C31BC9CB2837FBB400EF1674 /* MusicalNoteView.swift in Sources */,
+				C316E10F283AA9200098998B /* TabBarFixedNew.swift in Sources */,
 				C80846D7283AA10E00B1B9A7 /* PitchExerciseView.swift in Sources */,
 				C883CC8D283A8C3800D93FB0 /* TapExerciseView.swift in Sources */,
 				C80846D6283AA10E00B1B9A7 /* ButtonTapView.swift in Sources */,

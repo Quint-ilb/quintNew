@@ -12,21 +12,22 @@ import Foundation
 
 struct SettingView: View {
     var body: some View {
-        NavigationView{
+        
+        NavigationView {
             ZStack{
                 Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
                     .ignoresSafeArea()
                 
                 VStack{
                     DarkModeToggle()
-
+                    
                     VStack(alignment: .leading){
                         Text("Privacy")
                             .font(.title3)
                             .bold()
                             .padding(.leading, 35)
                             .padding(.bottom, -20.0)
-                            
+                        
                         PrivacyPolicyButton()
                     }
                     .padding()
@@ -83,6 +84,7 @@ struct SettingView: View {
                     }
                 }
             }
+            .navigationTitle("Settings")
         }
     }
 }
