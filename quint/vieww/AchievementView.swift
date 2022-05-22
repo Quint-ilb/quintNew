@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AchievementView: View {
-//    @AppStorage("exercise-\(ExerciseCategory.rhythm.rawValue)") var finishedlevel : Int = 0
+    @AppStorage("exercise-\(ExerciseCategory.rhythm.rawValue)") var finishedlevel : Int = 0
     var body: some View {
         NavigationView{
             ZStack{
@@ -30,26 +30,42 @@ struct AchievementView: View {
                                 .frame(width: 300, height: 24, alignment: .leading)
                             
                             HStack{
-                                Image("medalEmptyTri")
+                                Image(finishedlevel < 2 ? "medalRectBlue" : "medalEmptyTri")
                                     .resizable()
-                                    .frame(width: 47, height: 90)
-                                    .padding()
-                                Image("medalEmptyTri")
+                                    .scaledToFill()
+                                    .frame(width: 47, height: 90, alignment: .center)
+                                    .clipped()
+                                    .padding(.horizontal, 10)
+                                    
+                                    
+                                //lanjut aj ya // tq
+                                Image(finishedlevel < 3 ? "medalRectPurple" : "medalEmptyTri")
                                     .resizable()
-                                    .frame(width: 47, height: 90)
-                                    .padding()
-                                Image("medalEmptyRect")
+                                    .scaledToFill()
+                                    .frame(width: 47, height: 90, alignment: .center)
+                                    .clipped()
+                                    .padding(.horizontal, 10)
+                                    
+                                Image(finishedlevel < 4 ? "medalTriBlue" : "medalEmptyTri")
                                     .resizable()
-                                    .frame(width: 47, height: 90)
-                                    .padding()
-                                Image("medalEmptyRect")
+                                    .scaledToFill()
+                                    .frame(width: 47, height: 90, alignment: .center)
+                                    .clipped()
+                                    .padding(.horizontal, 10)
+                                    
+                                Image(finishedlevel < 5 ? "medalTriRed" : "medalEmptyTri")
                                     .resizable()
-                                    .frame(width: 47, height: 90)
-                                    .padding()
-                            }
-                            Image("trophyEmpty")
+                                    .scaledToFill()
+                                    .frame(width: 47, height: 90, alignment: .center)
+                                    .clipped()
+                                    .padding(.horizontal, 10)
+                                    
+                            } .padding()
+                            Image(finishedlevel < 5 ? "trophy" : "trophyEmpty")
                                 .resizable()
-                                .frame(width: 79, height: 107)
+                                .scaledToFill()
+                                .frame(width: 79, height: 107, alignment: .center)
+                                .clipped()
                                 .padding()
                         }
                         
