@@ -10,8 +10,8 @@ import SwiftUI
 @main
 struct quintApp: App {
     var body: some Scene {
-        WindowGroup {
-            ContentView()
+        WindowGroup<ContentView> {
+            ContentView(musicNM: MusicalNoteModel())
         }
     }
 }

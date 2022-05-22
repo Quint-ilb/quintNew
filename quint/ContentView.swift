@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    var musicNM : MusicalNoteModel
+    
+    //key : value
+    @AppStorage("isPassOnboarding") var isShowOnboarding : Bool = true
+    
     var body: some View {
-        ExerciseView()
+        if (isShowOnboarding) {
+            OnBoardView()
+        }else {
+            HomeView()
+//            ExerciseView()
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(musicNM: MusicalNoteModel())
     }
 }
