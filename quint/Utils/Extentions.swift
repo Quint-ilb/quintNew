@@ -60,3 +60,9 @@ struct RoundedCorner: Shape {
         return Path(path.cgPath)
     }
 }
+
+func reader(isShowCoachmark: Bool, type: CoachmarkType, coachmarkManager: CoachmarkManager) -> some View {
+    return GeometryReader { (geometry) -> AnyView in
+        AnyView(CoachmarkView(_frame: geometry.frame(in: CoordinateSpace.global), _size: geometry.size, coachMarkManager: coachmarkManager, isShowCoachmark: isShowCoachmark))
+    }
+}

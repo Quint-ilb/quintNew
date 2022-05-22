@@ -97,4 +97,59 @@ class Helper {
     static func getXInitialOffset(generatedBlock: [[Int]]) -> CGFloat {
         return CGFloat(Config.BLOCK_WIDTH * generatedBlock.count / 2)
     }
+    
+    static func arrToColumn(data : [Sound], col: Int) -> [[Sound]] {
+        var index : Int = 0
+        var res : [[Sound]] = []
+        while(index < data.count){
+            var temp : [Sound] = []
+            while(temp.count < col && index != data.count) {
+                temp.append(data[index])
+                index += 1
+            }
+            res.append(temp)
+            
+        }
+        return res
+    }
+    
+    static func getYOffset(sound: Sound) -> Double {
+        let offset : Double = -4
+        switch(sound) {
+        case .C, .C_ :
+            return 0 * offset
+        case .D, .D_ :
+            return 1 * offset
+        case .E :
+            return 2 * offset
+        case .F :
+            return 3 * offset
+        case .G :
+            return 4 * offset
+        case .A :
+            return 5 * offset
+        case .B :
+            return 6 * offset
+        case .C5 :
+            return 7 * offset
+        default :
+            return 1 * offset
+        }
+    }
+    
+    static func getRestOffset(rest: Note) -> Double {
+        let offset : Double = -4
+        switch(rest) {
+        case .fullRest:
+            return 1 * offset
+        case .halfRest:
+            return 1 * offset
+        case .quarterRest:
+            return 1 * offset
+        case .eighthRest:
+            return 1 * offset
+        default :
+            return 1 * offset
+        }
+    }
 }
