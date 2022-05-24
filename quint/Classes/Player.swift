@@ -30,7 +30,8 @@ struct Player {
             let soundURL = Bundle.main.url(forResource: fileName, withExtension: ext)!
             audioPlayer = try AVAudioPlayer(contentsOf: soundURL)
             self.playerType = playerType
-        } catch {
+        } catch let error{
+            print("init player failed", error.localizedDescription)
             // couldn't load file :(
         }
     }
@@ -41,7 +42,7 @@ struct Player {
     
     func play(atTime: TimeInterval?, delay: TimeInterval = 0.0) {
         let play_at = atTime ?? audioPlayer!.deviceCurrentTime + delay
-        print("play at", playerType, play_at)
+        print("play at", audioPlayer, play_at)
         
         audioPlayer?.play(atTime: play_at)
         delegate?.playNext(playAt: play_at, finishAt: play_at + self.beat, playerType: self.playerType)

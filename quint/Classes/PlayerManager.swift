@@ -26,7 +26,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     }}
     
     
-//    @Published var startTime: DispatchTime = .distantFuture
+    //    @Published var startTime: DispatchTime = .distantFuture
     @Published var startTime : TimeInterval = -1
     @Published var playingIndex: Int = -1
     @Published var playingTimestamp : TimeInterval = -1
@@ -80,50 +80,63 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     }
     
     private func setMetronomePlayers(metronomeInterval: [TimeInterval]) {
-        for metronomeBeat in metronomeInterval {
-            var player = getHiHatPlayer(playerType: .metronome)
-            player.setBeat(beat: metronomeBeat)
-            player.delegate = self
-            metronomePlayers.append(player)
+        if(metronomePlayers.count == 0) {
+            for metronomeBeat in metronomeInterval {
+                var player = getHiHatPlayer(playerType: .metronome)
+                player.setBeat(beat: metronomeBeat)
+                player.delegate = self
+                metronomePlayers.append(player)
+            }
+            
+        } else {
+            for (index, metronomeBeat) in metronomeInterval.enumerated() {
+                metronomePlayers[index].setBeat(beat: metronomeBeat)
+            }
         }
     }
     
     private func setPlayers(noteInterval: [TimeInterval], offsetBpm: Int, notes: [Note]) {
-        
-        for (index,noteInv) in noteInterval.enumerated() {
-            if(index == 0) {
-                for _ in 0..<offsetBpm {
-                    var player = getHiHatPlayer(playerType: .note)
-                    player.setBeat(beat: TimeInterval(noteInv/Double(offsetBpm)))
+        if(players.count == 0) {
+            for (index,noteInv) in noteInterval.enumerated() {
+                if(index == 0) {
+                    for _ in 0..<offsetBpm {
+                        var player = getHiHatPlayer(playerType: .note)
+                        player.setBeat(beat: TimeInterval(noteInv/Double(offsetBpm)))
+                        player.delegate = self
+                        players.append(player)
+                    }
+                }else{
+                    var player = getStartPlayer(playerType: .note, sound: notesToPlay[index-1].sound)
+                    player.setBeat(beat: noteInv)
+                    if(notes[index-1].isRest) {
+                        player.setVolume(vol: 0)
+                    }else {
+                        player.setVolume(vol: 3)
+                    }
+                    //                player.setRate(rate:0.649/Float(noteInv))
                     player.delegate = self
                     players.append(player)
                 }
-            }else{
-                var player = getStartPlayer(playerType: .note, sound: notesToPlay[index-1].sound)
-                player.setBeat(beat: noteInv)
-                if(notes[index-1].isRest) {
-                    player.setVolume(vol: 0)
-                }else {
-                    player.setVolume(vol: 3)
-                }
-//                player.setRate(rate:0.649/Float(noteInv))
-                player.delegate = self
-                players.append(player)
+                
             }
-            
+        } else {
+            for (index,noteInv) in noteInterval.enumerated() {
+                players[index].setBeat(beat: noteInv)
+            }
         }
+        
     }
-
+    
     private func start() {
         if playingIndex > -1 {
             cleanToRestart()
         }
         prepareToPlay()
-//        startTime = DispatchTime.now()
+        //        startTime = DispatchTime.now()
         displayLink = CADisplayLink(target: self, selector: #selector(trackPlayIndex))
         displayLink.add(to: .main, forMode: .default)
-//        print(displayLink.timestamp)
-//        play()
+        //        print(displayLink.timestamp)
+        //        play()
     }
     
     private func stop() {
@@ -157,7 +170,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     private func play() {
         isPlaying = true
         players[startIndex].play(atTime: startTime, delay: 0.0)
-//        print(metronomeStartIndex)
+        //        print(metronomeStartIndex)
         metronomePlayers[metronomeStartIndex].play(atTime: startTime, delay: 0.0)
         
     }
