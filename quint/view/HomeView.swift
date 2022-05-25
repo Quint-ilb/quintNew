@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @AppStorage("exercise-\(ExerciseCategory.rhythm.rawValue)") var finishedlevel : Int = 0
+    @AppStorage("exercise-\(ExerciseCategory.rhythm.rawValue)") var finishedlevel : Int = 5
     
     var musicNM : MusicalNoteModel = MusicalNoteModel()
     
@@ -49,7 +49,7 @@ struct HomeView: View {
                         .padding()) {
                             ForEach(0..<musicNM.musicals.count){ i in
                                 if(musicNM.musicals[i].exercise != nil) {
-                                    NavigationLink(destination: ExerciseView(exercise: musicNM.musicals[i].exercise!)) {
+                                    NavigationLink(destination: ExerciseView(exercise: musicNM.musicals[i].exercise!, playerManager: PlayerManager(notes: musicNM.musicals[i].exercise!.notes, bpm: musicNM.musicals[i].exercise!.bpms[0], offsetBpm: Config.OFFSET_BPM))) {
                                         MusicalNoteTable(musical: musicNM.musicals[i], isLocked: finishedlevel+1 < musicNM.musicals[i].level!)
                                     }.disabled( finishedlevel+1 < musicNM.musicals[i].level! )
                                 } else {
@@ -69,7 +69,7 @@ struct HomeView: View {
                         .padding()) {
                             ForEach(0..<musicNM.musicScale.count){ i in
                                 if(musicNM.musicScale[i].exercise != nil) {
-                                    NavigationLink(destination: ExerciseView(exercise: musicNM.musicScale[i].exercise!)) {
+                                    NavigationLink(destination: ExerciseView(exercise: musicNM.musicScale[i].exercise!, playerManager: PlayerManager(notes: musicNM.musicScale[i].exercise!.notes, bpm: musicNM.musicScale[i].exercise!.bpms[0], offsetBpm: Config.OFFSET_BPM))) {
                                         MusicalNoteTable(musical: musicNM.musicScale[i], isLocked: finishedlevel+1 < musicNM.musicScale[i].level!)
                                     }.disabled( finishedlevel+1 < musicNM.musicScale[i].level! )
                                 } else {
@@ -90,7 +90,7 @@ struct HomeView: View {
                         .padding()) {
                             ForEach(0..<musicNM.sightReading.count){ i in
                                 if(musicNM.sightReading[i].exercise != nil) {
-                                    NavigationLink(destination: ExerciseView(exercise: musicNM.sightReading[i].exercise!)) {
+                                    NavigationLink(destination: ExerciseView(exercise: musicNM.sightReading[i].exercise!, playerManager: PlayerManager(notes: musicNM.sightReading[i].exercise!.notes, bpm: musicNM.sightReading[i].exercise!.bpms[0], offsetBpm: Config.OFFSET_BPM))) {
                                         MusicalNoteTable(musical: musicNM.sightReading[i], isLocked: finishedlevel+1 < musicNM.sightReading[i].level!)
                                     }.disabled( finishedlevel+1 < musicNM.sightReading[i].level! )
                                 } else {

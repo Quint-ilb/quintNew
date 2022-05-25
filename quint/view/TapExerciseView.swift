@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct TapExerciseView: View {
-    
     @Environment(\.presentationMode) var presentation
-    
     
     var tapExercise: TapExercise
     var generatedBlock : [[Int]]
@@ -23,6 +21,7 @@ struct TapExerciseView: View {
     
     @State var tapTimestamp: [TimeInterval] = []
     @State var tapTimestampBool: [Bool] = []
+    @State var tapTimestampResultDict : [Int:Bool] = [:]
     
     @State var tapIndicatorState: TapIndicatorState = .neutral {
         didSet {
@@ -52,6 +51,24 @@ struct TapExerciseView: View {
                     
                 }.padding(.bottom, 50)
                 
+                //                                Group{
+                //                                    Text("index \(playerManager.playingIndex)")
+                //                                    Text("timestamp \(playerManager.playingTimestamp)")
+                //                                    Text("starttime \(playerManager.startTime)")
+                //                                    Text("endTime \(playerManager.endTime ?? 0)")
+                //                                    Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
+                //                                }
+                //
+                //                                HStack{
+                //
+                //                                    ForEach(tapTimestampBool, id: \.self) { res in
+                //                                        Circle()
+                //                                            .frame(width: 5, height: 5)
+                //                                            .foregroundColor(res == true ? .green : .red)
+                //
+                //                                    }
+                //                                }
+                
                 NotesView(notes: tapExercise.notes,
                           playerManager: playerManager,
                           generatedBlock: generatedBlock,
@@ -68,22 +85,8 @@ struct TapExerciseView: View {
                 
                 Spacer()
                 
-//                Group{
-//                    Text("index \(playerManager.playingIndex)")
-//                    Text("timestamp \(playerManager.playingTimestamp)")
-//                    Text("starttime \(playerManager.startTime)")
-//                    Text("endTime \(playerManager.endTime ?? 0)")
-//                    Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
-//                }
-//                HStack{
-//                    
-//                    ForEach(tapTimestampBool, id: \.self) { res in
-//                        Circle()
-//                            .frame(width: 5, height: 5)
-//                            .foregroundColor(res == true ? .green : .red)
-//                        
-//                    }
-//                }
+                
+                
             }.padding(.top, 150)
             
             
@@ -106,13 +109,13 @@ struct TapExerciseView: View {
             .navigationBarTitleDisplayMode(.inline)
             .navigationBarItems(trailing:
                                     Button(action: {
-                                        showPopUpInfo()
-                                    }) {
-                                        
-                                        Image("info")
-                                            .frame(width: 25.35, height: 20)
-                                            
-                                    }
+                showPopUpInfo()
+            }) {
+                
+                Image("info")
+                    .frame(width: 25.35, height: 20)
+                
+            }
             )
     }
     
@@ -161,12 +164,15 @@ struct TapExerciseView: View {
     }
     
     func getIsSuccess() -> Bool {
-        let totalOk = tapExercise.notes.filter { $0.isRest != true }.count
-        let totalTapOk = tapTimestampBool.filter { $0 == true }.count
-        if(totalOk == totalTapOk && tapTimestampBool.count == totalOk ) {
-            return true
-        } else {
+        if tapTimestampBool.count > 0 {
             return false
+        } else {
+            let totalOk = tapExercise.notes.filter { $0.isRest != true }.count
+            if tapTimestampResultDict.count == totalOk {
+                return true
+            } else {
+                return false
+            }
         }
     }
     
@@ -178,22 +184,57 @@ struct TapExerciseView: View {
     
     func onTapButton(_ tapTime: TimeInterval) {
         //        let tapTime = playerManager.displayLink.timestamp
-        guard playerManager.isPlaying else { return }
+        //        guard playerManager.isPlaying else { return }
         tapTimestamp.append(tapTime)
         getIsOK(tapTime: tapTime)
     };
     
     func getIsOK(tapTime: TimeInterval) {
-        let playingIndex = playerManager.playingIndex //0,1,2,  3, 4 //.,.,., 0,1
-        let currentTime = playerManager.playTime[playingIndex]
-        let isRest = playingIndex > Config.OFFSET_BPM-1 && tapExercise.notes[playingIndex - Config.OFFSET_BPM].isRest
-        if abs(tapTime - currentTime) < 0.3 && !isRest && playingIndex > Config.OFFSET_BPM-1 {
-            tapIndicatorState = .right
-            tapTimestampBool.append(true)
-        }else {
-            tapIndicatorState = .wrong
-            tapTimestampBool.append(false)
+        let currentIndex = playerManager.playingIndex
+        let nextIndex = playerManager.playingIndex + 1
+        
+        //        if currentIndex == -1 {
+        //            tapIndicatorState = .wrong
+        //            print("here")
+        //            return;
+        //        }
+        
+        if currentIndex > 0 {
+            //check current
+            //if current < 0.3 & is not rest
+            if(abs(tapTime - playerManager.playTime[currentIndex]) < 0.3) {
+                let isRest = tapExercise.notes[currentIndex - 1].isRest
+                if !isRest {
+                    tapIndicatorState = .right
+                    tapTimestampResultDict[currentIndex - 1] = true
+                    return;
+                }else {
+                    tapIndicatorState = .wrong
+                    tapTimestampBool.append(false)
+                    return;
+                }
+            }
         }
+        
+        //check nextindex //check if hasnext
+        if nextIndex < playerManager.playTime.count {
+            if(abs(tapTime - playerManager.playTime[nextIndex]) < 0.3) {
+                let _isRest = tapExercise.notes[nextIndex - 1].isRest
+                if !_isRest {
+                    tapIndicatorState = .right
+                    tapTimestampResultDict[nextIndex - 1] = true
+                    return;
+                }else {
+                    tapIndicatorState = .wrong
+                    tapTimestampBool.append(false)
+                    return;
+                }
+            }
+        }
+        
+        tapIndicatorState = .wrong
+        tapTimestampBool.append(false)
+        return;
     };
 }
 
@@ -285,7 +326,7 @@ struct NotesView: View {
                         }
                         .frame(width: blockWidth, height: 50)
                         .padding(0)
-//                                                .border(.red)
+                        //                                                .border(.red)
                     }
                 }.offset(x: countX(), y: 0)
                 
@@ -328,6 +369,5 @@ struct NotesView: View {
         let _x = x - (totalX * (percentage <= 1 ? percentage : 1))
         return _x
     }
-    
     
 }

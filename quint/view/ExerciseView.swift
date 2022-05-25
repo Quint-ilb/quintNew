@@ -11,8 +11,8 @@ struct ExerciseView: View {
     
     
     var exercise: TapExercise
+    @StateObject var playerManager : PlayerManager
     @State var bpmIndex : Int = 0
-   
     
     var body: some View {
         let generatedBlock = Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes)
@@ -28,7 +28,7 @@ struct ExerciseView: View {
                             
                             bpmIndex : $bpmIndex,
                             
-                            playerManager: PlayerManager(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                            playerManager: playerManager,
                             
                             onNext: onPressNext,
                             x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
@@ -45,7 +45,7 @@ struct ExerciseView: View {
                             
                             bpmIndex : $bpmIndex,
                             
-                            playerManager: PlayerManager(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                            playerManager: playerManager,
                             
                             onNext: onPressNext,
                             x: Helper.getXInitialOffset(generatedBlock: generatedBlock)

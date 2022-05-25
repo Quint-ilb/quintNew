@@ -11,6 +11,14 @@ class Config {
     static var tapExercises : [TapExercise] = [
         TapExercise(
             name: "Full Note",
+            notes: [.fullNote, .fullRest],
+            bpms: [60,80,120],
+            info: [.fullNote, .fullRest],
+            category: .rhythm,
+            reward: .level1
+        ),
+        TapExercise(
+            name: "Full Note",
             notes: [.fullNote, .fullRest, .fullNote, .fullRest, .fullNote, .fullRest, .fullNote, .fullRest],
             bpms: [60,80,120],
             info: [.fullNote, .fullRest],

@@ -40,12 +40,12 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     var notesToPlay : [Note]!
     
     init(notes: [Note], bpm: Int, offsetBpm: Int = Config.OFFSET_BPM){
-        print("bpm", bpm)
+//        print("bpm", bpm)
         self.notesToPlay = notes
         self.noteInterval = Helper.convertBeatToTimeInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
-        print("note interval", noteInterval as Any)
+//        print("note interval", noteInterval as Any)
         self.metronomeInterval = Helper.getMetronomeBeatInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
-        print("metronome interval", metronomeInterval as Any)
+//        print("metronome interval", metronomeInterval as Any)
         self.setPlayers(noteInterval: noteInterval!, offsetBpm: offsetBpm, notes: notes)
         self.setMetronomePlayers(metronomeInterval: metronomeInterval!)
         self.displayLink = CADisplayLink(
@@ -54,16 +54,16 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     }
     
     func reInit(notes: [Note], bpm: Int, offsetBpm: Int = Config.OFFSET_BPM){
-        print("bpm", bpm)
+//        print("bpm", bpm)
         self.noteInterval?.removeAll()
         self.noteInterval = Helper.convertBeatToTimeInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
-        print("note interval", noteInterval as Any)
+//        print("note interval", noteInterval as Any)
         self.metronomeInterval?.removeAll()
         self.metronomeInterval = Helper.getMetronomeBeatInterval(notes: notes, bpm: bpm, offsetBpm: offsetBpm)
-        print("metronome interval", metronomeInterval as Any)
-        self.players.removeAll()
+//        print("metronome interval", metronomeInterval as Any)
+//        self.players.removeAll()
         self.setPlayers(noteInterval: noteInterval!, offsetBpm: offsetBpm, notes: notes)
-        self.metronomePlayers.removeAll()
+//        self.metronomePlayers.removeAll()
         self.setMetronomePlayers(metronomeInterval: metronomeInterval!)
         self.displayLink = CADisplayLink(
             target: self,
@@ -99,12 +99,12 @@ class PlayerManager: ObservableObject, PlayerDelegate {
         if(players.count == 0) {
             for (index,noteInv) in noteInterval.enumerated() {
                 if(index == 0) {
-                    for _ in 0..<offsetBpm {
+//                    for _ in 0..<offsetBpm {
                         var player = getHiHatPlayer(playerType: .note)
-                        player.setBeat(beat: TimeInterval(noteInv/Double(offsetBpm)))
+                        player.setBeat(beat: noteInv)
                         player.delegate = self
                         players.append(player)
-                    }
+//                    }
                 }else{
                     var player = getStartPlayer(playerType: .note, sound: notesToPlay[index-1].sound)
                     player.setBeat(beat: noteInv)
@@ -121,7 +121,14 @@ class PlayerManager: ObservableObject, PlayerDelegate {
             }
         } else {
             for (index,noteInv) in noteInterval.enumerated() {
-                players[index].setBeat(beat: noteInv)
+                if(index == 0) {
+//                    for _ in 0..<offsetBpm {
+                        players[index].setBeat(beat: noteInv)
+//                    }
+                }else{
+                    players[index].setBeat(beat: noteInv)
+                }
+                
             }
         }
         
@@ -177,7 +184,7 @@ class PlayerManager: ObservableObject, PlayerDelegate {
     
     @objc private func trackPlayIndex(displayLink:CADisplayLink) {
         if startTime == -1 {
-            startTime = displayLink.timestamp + 1.0
+            startTime = displayLink.timestamp + 3.0
             play()
         }else {
             playingTimestamp = displayLink.timestamp

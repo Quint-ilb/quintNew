@@ -10,7 +10,6 @@ import SwiftUI
 struct PitchExerciseView: View {
     @Environment(\.presentationMode) var presentation
     
-    
     var tapExercise: TapExercise
     var generatedBlock : [[Int]]
     var totalTime : TimeInterval
@@ -22,6 +21,7 @@ struct PitchExerciseView: View {
     
     @State var tapTimestamp: [TimeInterval] = []
     @State var tapTimestampBool: [Bool] = []
+    @State var tapTimestampResultDict : [Int:Bool] = [:]
     
     @State var tapIndicatorState: TapIndicatorState = .neutral {
         didSet {
@@ -67,13 +67,13 @@ struct PitchExerciseView: View {
                 
                 Spacer()
                 
-                //                Group{
-                //                    Text("index \(playerManager.playingIndex)")
-                //                    Text("timestamp \(playerManager.playingTimestamp)")
-                //                    Text("starttime \(playerManager.startTime)")
-                //                    Text("endTime \(playerManager.endTime ?? 0)")
-                //                    Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
-                //                }
+                                Group{
+//                                    Text("index \(playerManager.playingIndex)")
+//                                    Text("timestamp \(playerManager.playingTimestamp)")
+//                                    Text("starttime \(playerManager.startTime)")
+//                                    Text("endTime \(playerManager.endTime ?? 0)")
+//                                    Text("timestamp \(playerManager.playingTimestamp < 0 ? "start" : "tap")")
+                                }
                 //                HStack{
                 //
                 //                    ForEach(tapTimestampBool, id: \.self) { res in
@@ -163,12 +163,15 @@ struct PitchExerciseView: View {
     }
     
     func getIsSuccess() -> Bool {
-        let totalOk = tapExercise.notes.filter { $0.isRest != true }.count
-        let totalTapOk = tapTimestampBool.filter { $0 == true }.count
-        if(totalOk == totalTapOk && tapTimestampBool.count == totalOk ) {
-            return true
-        } else {
+        if tapTimestampBool.count > 0 {
             return false
+        } else {
+            let totalOk = tapExercise.notes.filter { $0.isRest != true }.count
+            if tapTimestampResultDict.count == totalOk {
+                return true
+            } else {
+                return false
+            }
         }
     }
     
@@ -180,23 +183,60 @@ struct PitchExerciseView: View {
     
     func onTapButton(_ buttonSound : Sound, _ tapTime: TimeInterval) {
         //        let tapTime = playerManager.displayLink.timestamp
-        guard playerManager.isPlaying else { return }
+//        guard playerManager.isPlaying else { return }
         tapTimestamp.append(tapTime)
         getIsOK(sound: buttonSound, tapTime: tapTime)
     };
     
     func getIsOK(sound: Sound, tapTime: TimeInterval) {
-        let playingIndex = playerManager.playingIndex //0,1,2,  3, 4 //.,.,., 0,1
-        let currentTime = playerManager.playTime[playingIndex]
-        let isRest = playingIndex > Config.OFFSET_BPM-1 && tapExercise.notes[playingIndex - Config.OFFSET_BPM].isRest
-        let isRightSound = playingIndex > Config.OFFSET_BPM-1 && ((tapExercise.notes[playingIndex - Config.OFFSET_BPM].sound == .C5 ? Sound.C.rawValue : tapExercise.notes[playingIndex - Config.OFFSET_BPM].sound.rawValue) == sound.rawValue)
-        if isRightSound && abs(tapTime - currentTime) < 0.3 && !isRest && playingIndex > Config.OFFSET_BPM-1 {
-            tapIndicatorState = .right
-            tapTimestampBool.append(true)
-        }else {
-            tapIndicatorState = .wrong
-            tapTimestampBool.append(false)
+        let currentIndex = playerManager.playingIndex
+        let nextIndex = playerManager.playingIndex + 1
+        
+        if(currentIndex > 0) {
+            if(abs(tapTime - playerManager.playTime[currentIndex]) < 0.3) {
+                let isRest = tapExercise.notes[currentIndex - 1].isRest
+                let isRightSound = (tapExercise.notes[currentIndex - 1].sound == .C5 ? Sound.C.rawValue : tapExercise.notes[currentIndex - 1].sound.rawValue) == sound.rawValue
+                if !isRest && isRightSound {
+                    tapIndicatorState = .right
+                    tapTimestampResultDict[currentIndex - 1] = true
+                    return;
+                }else {
+                    tapIndicatorState = .wrong
+                    tapTimestampBool.append(false)
+                    return;
+                }
+            }
         }
+        
+        if nextIndex < playerManager.playTime.count {
+            if(abs(tapTime - playerManager.playTime[nextIndex]) < 0.3) {
+                let _isRest = tapExercise.notes[nextIndex - 1].isRest
+                let _isRightSound = (tapExercise.notes[nextIndex - 1].sound == .C5 ? Sound.C.rawValue : tapExercise.notes[nextIndex - 1].sound.rawValue) == sound.rawValue
+                if !_isRest && _isRightSound {
+                    tapIndicatorState = .right
+                    tapTimestampResultDict[nextIndex - 1] = true
+                    return;
+                }else {
+                    tapIndicatorState = .wrong
+                    tapTimestampBool.append(false)
+                    return;
+                }
+            }
+        }
+//        let currentTime = playerManager.playTime[playingIndex]
+//        let isRest = playingIndex > Config.OFFSET_BPM-1 && tapExercise.notes[playingIndex - Config.OFFSET_BPM].isRest
+//        let isRightSound = playingIndex > Config.OFFSET_BPM-1 && ((tapExercise.notes[playingIndex - Config.OFFSET_BPM].sound == .C5 ? Sound.C.rawValue : tapExercise.notes[playingIndex - Config.OFFSET_BPM].sound.rawValue) == sound.rawValue)
+//        if isRightSound && abs(tapTime - currentTime) < 0.3 && !isRest && playingIndex > Config.OFFSET_BPM-1 {
+//            tapIndicatorState = .right
+//            tapTimestampBool.append(true)
+//        }else {
+//            tapIndicatorState = .wrong
+//            tapTimestampBool.append(false)
+//        }
+        
+        tapIndicatorState = .wrong
+        tapTimestampBool.append(false)
+        return;
     };
 }
 
