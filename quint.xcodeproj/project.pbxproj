@@ -19,6 +19,9 @@
 		0A3B2503282E947C00A82AE8 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2502282E947C00A82AE8 /* Note.swift */; };
 		0A3B2506282EA81500A82AE8 /* PlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2505282EA81500A82AE8 /* PlayerManager.swift */; };
 		0A3B2508282EACCC00A82AE8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3B2507282EACCC00A82AE8 /* Player.swift */; };
+		7C17331528412A6900D7EEBF /* NoteAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C17331428412A6900D7EEBF /* NoteAudioPlayer.swift */; };
+		7C17331F2841D56500D7EEBF /* Metronome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C17331E2841D56500D7EEBF /* Metronome.swift */; };
+		7C1733212841DBDA00D7EEBF /* ExampleWithNewPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C1733202841DBDA00D7EEBF /* ExampleWithNewPlayerView.swift */; };
 		C31392B72830B52200DAF78A /* LearningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31392B62830B52200DAF78A /* LearningView.swift */; };
 		C31392B92830B56600DAF78A /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31392B82830B56600DAF78A /* HomeView.swift */; };
 		C316E10F283AA9200098998B /* TabBarFixedNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316E10E283AA9200098998B /* TabBarFixedNew.swift */; };
@@ -87,6 +90,9 @@
 		0A3B2505282EA81500A82AE8 /* PlayerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerManager.swift; sourceTree = "<group>"; };
 		0A3B2507282EACCC00A82AE8 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		0A93055B283D053D00C13B2D /* MyNoteTrainer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "MyNoteTrainer-Info.plist"; sourceTree = "<group>"; };
+		7C17331428412A6900D7EEBF /* NoteAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAudioPlayer.swift; sourceTree = "<group>"; };
+		7C17331E2841D56500D7EEBF /* Metronome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Metronome.swift; sourceTree = "<group>"; };
+		7C1733202841DBDA00D7EEBF /* ExampleWithNewPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleWithNewPlayerView.swift; sourceTree = "<group>"; };
 		C31392B62830B52200DAF78A /* LearningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningView.swift; sourceTree = "<group>"; };
 		C31392B82830B56600DAF78A /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		C316E10E283AA9200098998B /* TabBarFixedNew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarFixedNew.swift; sourceTree = "<group>"; };
@@ -229,6 +235,8 @@
 				0A3B2502282E947C00A82AE8 /* Note.swift */,
 				0A3B2505282EA81500A82AE8 /* PlayerManager.swift */,
 				0A3B2507282EACCC00A82AE8 /* Player.swift */,
+				7C17331E2841D56500D7EEBF /* Metronome.swift */,
+				7C17331428412A6900D7EEBF /* NoteAudioPlayer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -274,6 +282,7 @@
 				C3CAFF57283699FD002ECBE8 /* MusicalNoteTable.swift */,
 				C31BC9CA2837FBB400EF1674 /* MusicalNoteView.swift */,
 				C31BC9CE283808B400EF1674 /* reference.swift */,
+				7C1733202841DBDA00D7EEBF /* ExampleWithNewPlayerView.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -391,7 +400,9 @@
 				C883CC88283A8BD500D93FB0 /* TabMantap.swift in Sources */,
 				C883CC99283A927F00D93FB0 /* Setting.swift in Sources */,
 				C849FC0F283937CF00E96E3A /* PopUpChallengeContentView.swift in Sources */,
+				7C1733212841DBDA00D7EEBF /* ExampleWithNewPlayerView.swift in Sources */,
 				0A3B24FD282E913600A82AE8 /* TapExercise.swift in Sources */,
+				7C17331528412A6900D7EEBF /* NoteAudioPlayer.swift in Sources */,
 				CB8D5A8D283945C10096C56B /* ProgressBar.swift in Sources */,
 				CB8D5A8E283945C10096C56B /* RhythmView.swift in Sources */,
 				C849FC072839377300E96E3A /* OnBoardList.swift in Sources */,
@@ -416,6 +427,7 @@
 				0A3B24FF282E922500A82AE8 /* Beat.swift in Sources */,
 				C3CAFF58283699FD002ECBE8 /* MusicalNoteTable.swift in Sources */,
 				0A3B24DE282E8E2400A82AE8 /* quintApp.swift in Sources */,
+				7C17331F2841D56500D7EEBF /* Metronome.swift in Sources */,
 				0A3B2501282E92F900A82AE8 /* Helper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

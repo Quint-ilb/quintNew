@@ -12,4 +12,5 @@ enum TapButtonState: String {
     case tap = "Tap"
     case ready = "Ready"
     case restart = "Restart"
+    case stop = "Stop"
 }

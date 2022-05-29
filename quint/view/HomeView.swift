@@ -102,6 +102,10 @@ struct HomeView: View {
                                 
                             }
                             
+                            NavigationLink(destination: ExampleWithNewPlayerView()) {
+                                MusicalNoteTable(musical: MusicalNote(name: "TTLS", image: "sightreading"), isLocked: false)
+                            }
+                            
                         }
                 }
                 
