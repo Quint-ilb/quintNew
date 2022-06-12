@@ -41,7 +41,10 @@ struct TabBarFixedNew: View {
             
             .navigationBarTitle(Text(navigationBarTitle), displayMode: .large)
             .navigationBarHidden(navigationBarHidden)
+            
         }
+        .navigationViewStyle(StackNavigationViewStyle())
+        
     }
 }
 

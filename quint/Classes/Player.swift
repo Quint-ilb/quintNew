@@ -36,16 +36,23 @@ struct Player {
         }
     }
     
+    //    deinit {
+    //        print("deinit")
+    //    }
+    
     func prepareToPlay() {
         audioPlayer?.prepareToPlay()
     }
     
     func play(atTime: TimeInterval?, delay: TimeInterval = 0.0) {
         let play_at = atTime ?? audioPlayer!.deviceCurrentTime + delay
-//        print("play at", audioPlayer, play_at)
-        
+        //        print("play at", audioPlayer, play_at)
         audioPlayer?.play(atTime: play_at)
-        delegate?.playNext(playAt: play_at, finishAt: play_at + self.beat, playerType: self.playerType)
+        DispatchQueue.global(qos: .background).async {
+            
+            delegate?.playNext(playAt: play_at, finishAt: play_at + self.beat, playerType: self.playerType)
+        }
+        
         
     }
     

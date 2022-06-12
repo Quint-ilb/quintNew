@@ -116,7 +116,9 @@ struct TapExerciseView: View {
                     .frame(width: 25.35, height: 20)
                 
             }
-            )
+            ).onDisappear {
+                
+            }
     }
     
     func showPopUpInfo() {
@@ -167,7 +169,7 @@ struct TapExerciseView: View {
         if tapTimestampBool.count > 0 {
             return false
         } else {
-            let totalOk = tapExercise.notes.filter { $0.isRest != true }.count
+            let totalOk = playerManager.playSound.count
             if tapTimestampResultDict.count == totalOk {
                 return true
             } else {
@@ -183,8 +185,6 @@ struct TapExerciseView: View {
     };
     
     func onTapButton(_ tapTime: TimeInterval) {
-        //        let tapTime = playerManager.displayLink.timestamp
-        //        guard playerManager.isPlaying else { return }
         tapTimestamp.append(tapTime)
         getIsOK(tapTime: tapTime)
     };
@@ -193,42 +193,19 @@ struct TapExerciseView: View {
         let currentIndex = playerManager.playingIndex
         let nextIndex = playerManager.playingIndex + 1
         
-        //        if currentIndex == -1 {
-        //            tapIndicatorState = .wrong
-        //            print("here")
-        //            return;
-        //        }
-        
-        if currentIndex > 0 {
-            //check current
-            //if current < 0.3 & is not rest
+        if(currentIndex > -1) {
             if(abs(tapTime - playerManager.playTime[currentIndex]) < 0.3) {
-                let isRest = tapExercise.notes[currentIndex - 1].isRest
-                if !isRest {
-                    tapIndicatorState = .right
-                    tapTimestampResultDict[currentIndex - 1] = true
-                    return;
-                }else {
-                    tapIndicatorState = .wrong
-                    tapTimestampBool.append(false)
-                    return;
-                }
+                tapIndicatorState = .right
+                tapTimestampResultDict[currentIndex] = true
+                return;
             }
         }
         
-        //check nextindex //check if hasnext
         if nextIndex < playerManager.playTime.count {
             if(abs(tapTime - playerManager.playTime[nextIndex]) < 0.3) {
-                let _isRest = tapExercise.notes[nextIndex - 1].isRest
-                if !_isRest {
-                    tapIndicatorState = .right
-                    tapTimestampResultDict[nextIndex - 1] = true
-                    return;
-                }else {
-                    tapIndicatorState = .wrong
-                    tapTimestampBool.append(false)
-                    return;
-                }
+                tapIndicatorState = .right
+                tapTimestampResultDict[nextIndex] = true
+                return;
             }
         }
         
@@ -337,14 +314,14 @@ struct NotesView: View {
                 Rectangle()
                     .frame(width: 40, height: 80, alignment: .center)
                     .overlay(Rectangle()
-                        .fill(Color.black).padding(.leading, 36))
-                    .foregroundColor(.white)
+                        .fill(Color.blackColor).padding(.leading, 36))
+                    .foregroundColor(Color.bgPrimary)
                 Spacer()
                 Rectangle()
                     .frame(width: 40, height: 80, alignment: .center)
                     .overlay(Rectangle()
-                        .fill(Color.black).padding(.trailing, 36))
-                    .foregroundColor(.white)
+                        .fill(Color.blackColor).padding(.trailing, 36))
+                    .foregroundColor(Color.bgPrimary)
                 
                 
             }

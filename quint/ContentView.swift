@@ -13,12 +13,13 @@ struct ContentView: View {
     
     //key : value
     @AppStorage("isPassOnboarding") var isShowOnboarding : Bool = true
+    @AppStorage("isDarkMode") var isDarkMode : Bool = true
     
     var body: some View {
         if (isShowOnboarding) {
             OnBoardView()
         }else {
-            TabBarFixedNew()
+            TabBarFixedNew().preferredColorScheme(isDarkMode ? .dark : .light)
 //            ExerciseView()
         }
     }

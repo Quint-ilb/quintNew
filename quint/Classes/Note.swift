@@ -13,16 +13,15 @@ enum Sound: String {
     case D = "D"
     case D_ = "D#"
     case E = "E"
-    case F = "F"
+    case E_, F = "F"
     case F_ = "F#"
     case G = "G"
     case G_ = "G#"
     case A = "A"
     case A_ = "A#"
     case B = "B"
-    case C5 = "C5"
+    case B_, C5 = "C5"
     case sound = "sound"
-    
 }
 
 struct Note: Equatable {
@@ -33,7 +32,8 @@ struct Note: Equatable {
     var sound: Sound = .D
     var isRest: Bool = false
     var level: Double = 3.0
-
+    
+    var soundName: String { return sound.rawValue }
     
     static let fullNote = Note(name: "Full", image: "fullNote", beat: .full)
     static let halfNote = Note(name: "Half", image: "halfNote", beat: .half)

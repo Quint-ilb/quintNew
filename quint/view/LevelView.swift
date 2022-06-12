@@ -29,12 +29,13 @@ struct LevelView: View {
                         }else {
                             Circle()
                                 .stroke(Color.secondaryColor,lineWidth: 3)
-                                .background(.white)
+                                .background(Color.bgPrimary)
                                 .frame(width: 59, height: 59, alignment: .center)
                         }
                         
                         if(i <= totalDone) {
-                            Image(systemName: "checkmark").foregroundColor(.white)
+                            Image(systemName: "checkmark")
+                                .foregroundColor(.white)
                         } else {
                             Text("\(i)")
                         }
@@ -45,12 +46,14 @@ struct LevelView: View {
                 }
                 
             }.frame(width: 295)
+                
         }
     }
 }
 
-//struct LevelView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        LevelView()
-//    }
-//}
+struct LevelView_Previews: PreviewProvider {
+    static var previews: some View {
+        LevelView(totalDone: 2)
+            .preferredColorScheme(.light)
+    }
+}

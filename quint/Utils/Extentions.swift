@@ -15,6 +15,10 @@ extension Color {
     static let secondaryLightColor = Color("secondaryLightColor")
     static let grayFColor = Color("grayFColor")
     static let grayEColor = Color("grayEColor")
+    static let bgPrimary = Color("bgPrimary")
+    static let bgSecondary = Color("bgSecondary")
+    static let bgCoachmark = Color("bgCoachmark")
+    static let blackColor = Color("blackColor")
 }
 
 

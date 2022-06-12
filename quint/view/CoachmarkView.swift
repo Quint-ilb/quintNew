@@ -29,7 +29,7 @@ struct CoachmarkView: View {
                     let coachmark = coachMarkManager.coachmarkData[coachMarkManager.coachmarkIndex]
                     VStack{
                         Triangle()
-                            .fill(.white)
+                            .fill(Color.bgCoachmark)
                             .frame(width: 27, height: 18)
                             .padding(0)
                             .offset(x: 0, y: 10)
@@ -40,7 +40,7 @@ struct CoachmarkView: View {
                         .padding(.vertical, 12)
                         .padding(.horizontal, 32)
                         .frame(width: 321)
-                        .background(.white)
+                        .background(Color.bgCoachmark)
                         .cornerRadius(24)
                         Text("Tap anywhere to next")
                             .font(.system(size: 15, weight: .medium))

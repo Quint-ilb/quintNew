@@ -162,7 +162,8 @@ struct PrivacyPolicyButton: View {
 }
 
 struct DarkModeToggle: View {
-    @State private var isDarkMode : Bool = false
+    @AppStorage("isDarkMode") var isDarkMode : Bool = true
+//    @State private var isDarkMode : Bool = false
     var body: some View {
         ZStack{
             RoundedRectangle(cornerRadius: 25)

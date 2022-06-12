@@ -53,7 +53,6 @@ struct PopUpChallengeContentView: View {
                         
                         VStack{
                             Button(action: {
-                                print("tap")
                                 data.onPressSecondary()
                             }, label: {
                                 HStack{

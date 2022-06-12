@@ -15,42 +15,47 @@ struct ExerciseView: View {
     @State var bpmIndex : Int = 0
     
     var body: some View {
-        let generatedBlock = Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes)
-        if(exercise.category == .rhythm) {
-            TapExerciseView(
-                tapExercise: exercise,
-                            
-                            generatedBlock: generatedBlock,
-                            
-                            totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
-                            
-                            bpm: exercise.bpms[bpmIndex],
-                            
-                            bpmIndex : $bpmIndex,
-                            
-                            playerManager: playerManager,
-                            
-                            onNext: onPressNext,
-                            x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
-            )
-        } else if (exercise.category == .pitch) {
-            PitchExerciseView(
-                tapExercise: exercise,
-                            
-                            generatedBlock: generatedBlock,
-                            
-                            totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
-                            
-                            bpm: exercise.bpms[bpmIndex],
-                            
-                            bpmIndex : $bpmIndex,
-                            
-                            playerManager: playerManager,
-                            
-                            onNext: onPressNext,
-                            x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
-            )
-        }
+        Group{
+            let generatedBlock = Helper.generateBlock(offsetBpm: Config.OFFSET_BPM, notes: exercise.notes)
+            if(exercise.category == .rhythm) {
+                TapExerciseView(
+                    tapExercise: exercise,
+                                
+                                generatedBlock: generatedBlock,
+                                
+                                totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                                
+                                bpm: exercise.bpms[bpmIndex],
+                                
+                                bpmIndex : $bpmIndex,
+                                
+                                playerManager: playerManager,
+                                
+                                onNext: onPressNext,
+                                x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
+                )
+            } else if (exercise.category == .pitch) {
+                PitchExerciseView(
+                    tapExercise: exercise,
+                                
+                                generatedBlock: generatedBlock,
+                                
+                                totalTime: Helper.getTotalTime(notes: exercise.notes, bpm: exercise.bpms[bpmIndex], offsetBpm: Config.OFFSET_BPM),
+                                
+                                bpm: exercise.bpms[bpmIndex],
+                                
+                                bpmIndex : $bpmIndex,
+                                
+                                playerManager: playerManager,
+                                
+                                onNext: onPressNext,
+                                x: Helper.getXInitialOffset(generatedBlock: generatedBlock)
+                )
+            }
+        }.onDisappear {
+            playerManager._deinit()
+        }.background(Color.bgPrimary)
+        
             
             
             

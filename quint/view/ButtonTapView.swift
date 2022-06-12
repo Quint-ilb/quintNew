@@ -15,7 +15,7 @@ struct ButtonTapView: View {
         //        Text("\(buttonState == .tap ? "tap" : "start")")
         let buttonState : TapButtonState = getButtonState()
         Button(action: {
-            onTap(buttonState, playerManager.displayLink.timestamp)
+            onTap(buttonState, playerManager.displayLink!.timestamp)
         }, label: {
             TapButtonView(buttonLabel: buttonState.rawValue, radius: 50)
         })
@@ -39,9 +39,9 @@ struct ButtonNoteTapView: View {
     
     var body: some View {
         Button(action: {
-            onTap(sound, playerManager.displayLink.timestamp)
+            onTap(sound, playerManager.displayLink!.timestamp)
         }, label: {
-            TapButtonView(buttonLabel: sound.rawValue, radius: 25)
+            TapButtonView(buttonLabel: String(describing: sound).replacingOccurrences(of: "_", with: "#"), radius: 25)
         })
     }
     

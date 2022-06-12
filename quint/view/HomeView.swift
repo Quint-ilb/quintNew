@@ -13,10 +13,20 @@ struct HomeView: View {
     
     var musicNM : MusicalNoteModel = MusicalNoteModel()
     
+    @State var musicalNote : MusicalNote?
+    @State var isActive : Bool = false
+    
     var body: some View {
         ZStack {
-            Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1))
-                .ignoresSafeArea(.container)
+            if(musicalNote != nil) {
+                NavigationLink(destination: ExerciseView(
+                    exercise: musicalNote!.exercise!,
+                    playerManager: PlayerManager()._init(notes: musicalNote!.exercise!.notes,
+                                                         bpm: musicalNote!.exercise!.bpms[0]),
+                    bpmIndex: 0), isActive: $isActive, label: {
+                        
+                    })
+            }
             
             VStack {
                 Text("Progress")
@@ -34,13 +44,6 @@ struct HomeView: View {
                         .foregroundColor(.gray)
                 }.padding(.bottom, 20)
                 
-                //                    Text("Musical Note")
-                //                        .font(.system(size: 20, weight: .semibold))
-                //                        .foregroundColor(.gray)
-                //                        .frame(width: 340, height: 24, alignment: .leading)
-                //                        .padding()
-                
-                
                 List {
                     Section(header:Text("Musical Note")
                         .font(.system(size: 20, weight: .semibold))
@@ -49,14 +52,18 @@ struct HomeView: View {
                         .padding()) {
                             ForEach(0..<musicNM.musicals.count){ i in
                                 if(musicNM.musicals[i].exercise != nil) {
-                                    NavigationLink(destination: ExerciseView(exercise: musicNM.musicals[i].exercise!, playerManager: PlayerManager(notes: musicNM.musicals[i].exercise!.notes, bpm: musicNM.musicals[i].exercise!.bpms[0], offsetBpm: Config.OFFSET_BPM))) {
+                                    Button(action: {
+                                        musicalNote = musicNM.musicals[i]
+                                        isActive = true
+                                    }, label: {
                                         MusicalNoteTable(musical: musicNM.musicals[i], isLocked: finishedlevel+1 < musicNM.musicals[i].level!)
-                                    }.disabled( finishedlevel+1 < musicNM.musicals[i].level! )
+                                    }).disabled( finishedlevel+1 < musicNM.musicals[i].level! )
                                 } else {
-                                    NavigationLink(destination: RhythmView()){
-                                        MusicalNoteTable(musical: musicNM.musicals[i], isLocked: false)
-                                        //                                        .navigationBarHidden(true)
-                                    }
+                                    MusicalNoteTable(musical: musicNM.musicals[i], isLocked: false)
+                                        .overlay(NavigationLink(destination: RhythmView(), label: {
+                                            EmptyView()
+                                        }).opacity(0))
+                                    
                                 }
                                 
                             }
@@ -69,52 +76,51 @@ struct HomeView: View {
                         .padding()) {
                             ForEach(0..<musicNM.musicScale.count){ i in
                                 if(musicNM.musicScale[i].exercise != nil) {
-                                    NavigationLink(destination: ExerciseView(exercise: musicNM.musicScale[i].exercise!, playerManager: PlayerManager(notes: musicNM.musicScale[i].exercise!.notes, bpm: musicNM.musicScale[i].exercise!.bpms[0], offsetBpm: Config.OFFSET_BPM))) {
+                                    Button(action: {
+                                        musicalNote = musicNM.musicScale[i]
+                                        isActive = true
+                                    }, label: {
                                         MusicalNoteTable(musical: musicNM.musicScale[i], isLocked: finishedlevel+1 < musicNM.musicScale[i].level!)
-                                    }.disabled( finishedlevel+1 < musicNM.musicScale[i].level! )
-                                } else {
-                                    NavigationLink(destination: RhythmView()){
-                                        MusicalNoteTable(musical: musicNM.musicScale[i], isLocked: false)
-                                        //                                        .navigationBarHidden(true)
-                                    }
+                                    }).disabled( finishedlevel+1 < musicNM.musicScale[i].level! )
                                 }
-                                
                             }
-                            
                         }
                     
                     Section(header:Text("Sight Reading")
                         .font(.system(size: 20, weight: .semibold))
                         .foregroundColor(.gray)
-                            //                            .frame(width: 340, height: 24, alignment: .leading)
                         .padding()) {
                             ForEach(0..<musicNM.sightReading.count){ i in
                                 if(musicNM.sightReading[i].exercise != nil) {
-                                    NavigationLink(destination: ExerciseView(exercise: musicNM.sightReading[i].exercise!, playerManager: PlayerManager(notes: musicNM.sightReading[i].exercise!.notes, bpm: musicNM.sightReading[i].exercise!.bpms[0], offsetBpm: Config.OFFSET_BPM))) {
+                                    Button(action: {
+                                        musicalNote = musicNM.sightReading[i]
+                                        //                                        playerManager = PlayerManager()
+                                        isActive = true
+                                    }, label: {
                                         MusicalNoteTable(musical: musicNM.sightReading[i], isLocked: finishedlevel+1 < musicNM.sightReading[i].level!)
-                                    }.disabled( finishedlevel+1 < musicNM.sightReading[i].level! )
-                                } else {
-                                    NavigationLink(destination: RhythmView()){
-                                        MusicalNoteTable(musical: musicNM.sightReading[i], isLocked: false)
-                                        //                                        .navigationBarHidden(true)
-                                    }
+                                    }).disabled( finishedlevel+1 < musicNM.sightReading[i].level! )
                                 }
                                 
                             }
-                            
                         }
                 }
                 
                 Rectangle()
                     .fill(Color.clear)
                     .frame(height: 10)
-                    .background(Color(#colorLiteral(red: 0.9354777932, green: 0.9454266429, blue: 0.9624565244, alpha: 1)))}
+                    .background(Color.bgPrimary)
+            }.background(Color.bgPrimary)
             
+        }.onAppear {
+            musicalNote = nil
+            isActive = false
         }
-        
-        //temp
+    }
+    
+    func onPress() {
         
     }
+    
 }
 
 

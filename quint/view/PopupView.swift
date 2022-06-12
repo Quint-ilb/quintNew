@@ -18,8 +18,8 @@ struct PopupViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         ZStack{
             Rectangle()
-                .fill(.gray)
-                .opacity(0.3)
+                .fill(Color.bgPrimary)
+                .opacity(0.6)
                 .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .onTapGesture {
                     onTap()
@@ -51,7 +51,7 @@ struct PopupViewModifier: ViewModifier {
                     
                     .background(
                         GeometryReader { proxy in
-                            Color.white
+                            Color.bgSecondary
                                 .onAppear { /// 2.
                                     popUpHeight = proxy.size.height
                                     y = popUpHeight
