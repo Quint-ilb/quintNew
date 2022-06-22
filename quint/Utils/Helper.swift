@@ -151,7 +151,3 @@ class Helper {
         }
     }
 }
-
-func randomfunc() {
-    
-}
