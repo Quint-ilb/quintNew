@@ -252,12 +252,12 @@ struct NotesView2: View {
                     VStack(spacing: 0){
                         Rectangle()
                             .frame(width: UIScreen.main.bounds.width, height: 1, alignment: .center)
-                            .foregroundColor(.black)
+                            .foregroundColor(Color.blackColor)
                             .offset(x: 0, y: 0)
                         if i < 4 {
                             Rectangle()
                                 .frame(width: UIScreen.main.bounds.width, height: 7, alignment: .center)
-                                .foregroundColor(.white)
+                                .foregroundColor(Color.bgPrimary)
                                 .offset(x: 0, y: 0)
                         }
                         
@@ -357,8 +357,8 @@ struct NotesView2: View {
                     Rectangle()
                         .frame(width: 40, height: 100, alignment: .center)
                         .overlay(Rectangle()
-                            .fill(Color.black).padding(.leading, 36))
-                        .foregroundColor(.white)
+                            .fill(Color.blackColor).padding(.leading, 36))
+                        .foregroundColor(Color.bgPrimary)
                     Image("g2")
                         .resizable()
                         .frame(width: 35, height: 70)
@@ -368,8 +368,8 @@ struct NotesView2: View {
                 Rectangle()
                     .frame(width: 40, height: 100, alignment: .center)
                     .overlay(Rectangle()
-                        .fill(Color.black).padding(.trailing, 36))
-                    .foregroundColor(.white)
+                        .fill(Color.blackColor).padding(.trailing, 36))
+                    .foregroundColor(Color.bgPrimary)
                 
                 
             }
